@@ -1,0 +1,6 @@
+flask
+transformer
+json
+torch
+acceleration
+os
