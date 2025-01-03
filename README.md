@@ -80,5 +80,5 @@ An example dataset (`myData.json`) is included in the project. It contains 32.3 
 ## Notes
 
 - Make sure you are using Python 3.8 or higher for compatibility.
-- If you want to fine-tune the DistilBERT model further, use the `train_model.py` script found inside **Retrieval Model.zip**.
+- If you want to fine-tune this DistilBERT model further, use the `train_model.py` script found inside **Retrieval Model.zip**.
 - HTML templates (if used for web interface) can be found in the `templates/` directory inside the ZIP files.
