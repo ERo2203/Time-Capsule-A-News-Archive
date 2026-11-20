@@ -1,0 +1,122 @@
+[
+  {
+    "id": "lincoln-assassination",
+    "title": "The Assassination of Abraham Lincoln",
+    "start": "1865-04-15", "end": "1865-04-30",
+    "loc_query": "lincoln assassination",
+    "ia_terms": ["Lincoln", "assassin"],
+    "context": "President Abraham Lincoln was shot by the actor John Wilkes Booth at Ford's Theatre in Washington on the night of April 14, 1865, five days after Lee's surrender at Appomattox, and died the next morning. The same night Lewis Powell attacked Secretary of State William Seward at his home. Booth was cornered and killed at a Virginia farm on April 26. News moved by telegraph, so many papers printed bulletins in the order they arrived, including rumours later corrected.",
+    "reading_notes": "Watch how certainty changes from bulletin to bulletin, and how Northern and Southern-leaning papers frame the conspiracy. Spellings of names (e.g. 'Payne' for Powell, who used that alias) differ from modern usage.",
+    "questions": ["How did papers first report the attack on Seward?", "When was Booth's death reported, and how?", "How was the funeral train described?"]
+  },
+  {
+    "id": "great-chicago-fire",
+    "title": "The Great Chicago Fire",
+    "start": "1871-10-09", "end": "1871-10-31",
+    "loc_query": "chicago fire",
+    "ia_terms": ["Chicago", "fire"],
+    "context": "Fire broke out on Chicago's West Side on the night of October 8, 1871, and burned until October 10, destroying about 3.3 square miles of the city, including the business district. Roughly 300 people died and around 100,000 were left homeless. Relief poured in from other cities, and the story of Mrs. O'Leary's cow, never proven, spread through the press.",
+    "reading_notes": "Early casualty and loss figures were guesses and vary widely between papers. The O'Leary cow story is a useful case study in how a press rumour becomes 'fact'.",
+    "questions": ["How did papers explain the cause of the fire?", "What relief efforts did other cities organize?", "How did estimates of the losses change over the month?"]
+  },
+  {
+    "id": "johnstown-flood",
+    "title": "The Johnstown Flood",
+    "start": "1889-06-01", "end": "1889-06-20",
+    "loc_query": "johnstown flood",
+    "ia_terms": ["Johnstown"],
+    "context": "On May 31, 1889, the South Fork Dam on the Little Conemaugh River in Pennsylvania failed after days of heavy rain, sending a wall of water down the valley onto Johnstown. More than 2,200 people died. The dam held back a lake owned by the South Fork Fishing and Hunting Club, whose members included wealthy Pittsburgh industrialists, and the press debated their responsibility. Clara Barton led one of the American Red Cross's first major relief operations there.",
+    "reading_notes": "Death tolls in the first week range from hundreds to many thousands. Compare how papers treat the club's liability and the relief effort.",
+    "questions": ["Who did papers blame for the dam failure?", "How was the Red Cross relief work reported?", "How did the reported death toll change?"]
+  },
+  {
+    "id": "wright-brothers",
+    "title": "The Wright Brothers' First Flights",
+    "start": "1903-12-17", "end": "1904-01-31",
+    "loc_query": "wright flying machine kitty hawk",
+    "ia_terms": ["flying machine", "Wright"],
+    "context": "On December 17, 1903, Orville and Wilbur Wright made the first sustained, controlled flights of a powered heavier-than-air airplane at Kill Devil Hills near Kitty Hawk, North Carolina. They flew four times that day; the longest flight, by Wilbur, covered 852 feet in 59 seconds. Press coverage was thin and often wrong: an embellished wire story spread from Norfolk, and many editors doubted the claims for years.",
+    "reading_notes": "This collection is a lesson in how a world-changing event can be under-reported or misreported. Compare reported distances and details with the Wrights' own account.",
+    "questions": ["How far did newspapers say the machine flew?", "Which papers were sceptical?", "How did the Wrights' statement correct the press?"]
+  },
+  {
+    "id": "san-francisco-earthquake",
+    "title": "The 1906 San Francisco Earthquake and Fire",
+    "start": "1906-04-18", "end": "1906-05-05",
+    "loc_query": "san francisco earthquake",
+    "ia_terms": ["San Francisco", "earthquake"],
+    "context": "At 5:12 a.m. on April 18, 1906, a major earthquake on the San Andreas Fault struck San Francisco. Fires that followed burned for several days and destroyed most of the city. Official death counts at the time were in the hundreds; later research puts the toll at roughly 3,000 or more. More than half of the city's roughly 400,000 residents were left homeless.",
+    "reading_notes": "Early reports undercounted deaths, partly to protect the city's reputation and partly because of chaos. Note what the press says about martial law, looting and the army's use of dynamite.",
+    "questions": ["How were the fires fought?", "What did papers report about looting and martial law?", "How did other cities send aid?"]
+  },
+  {
+    "id": "titanic",
+    "title": "The Sinking of the Titanic",
+    "start": "1912-04-15", "end": "1912-04-30",
+    "loc_query": "titanic iceberg",
+    "ia_terms": ["Titanic"],
+    "context": "The White Star liner Titanic struck an iceberg at about 11:40 p.m. on April 14, 1912, on her maiden voyage, and sank about 2 hours 40 minutes later. Around 1,500 people died; about 700 survivors were picked up by the Cunard liner Carpathia, which reached New York on the night of April 18. The first wireless reports were confused, and some papers on April 15 reported that all passengers were safe and the ship was being towed to Halifax.",
+    "reading_notes": "Compare the early 'all saved' reports with those from April 16 onward. Survivor lists were printed and reprinted with many spelling errors. US Senate hearings began on April 19.",
+    "questions": ["When did papers first report the loss of life?", "What did survivors say about the lifeboats?", "How was the Carpathia's arrival reported?"]
+  },
+  {
+    "id": "lusitania",
+    "title": "The Sinking of the Lusitania",
+    "start": "1915-05-07", "end": "1915-05-25",
+    "loc_query": "lusitania torpedoed",
+    "ia_terms": ["Lusitania"],
+    "context": "On May 7, 1915, the German submarine U-20 torpedoed the Cunard liner Lusitania off the south coast of Ireland. She sank in about 18 minutes, and 1,198 people died, among them 128 Americans. The sinking turned much American opinion against Germany, though the United States did not enter the war until April 1917. Germany argued the ship carried munitions and had published warnings to travellers.",
+    "reading_notes": "Read for editorial positions on neutrality and for the German embassy's newspaper warning, which some papers reprinted.",
+    "questions": ["How did American papers react to the sinking?", "What was said about the German warning notice?", "How did President Wilson respond?"]
+  },
+  {
+    "id": "influenza-1918",
+    "title": "The 1918 Influenza Pandemic",
+    "start": "1918-10-01", "end": "1918-10-31",
+    "loc_query": "influenza epidemic",
+    "ia_terms": ["influenza"],
+    "context": "The deadliest wave of the 1918-1919 influenza pandemic hit the United States in autumn 1918, peaking in October. Cities closed schools, churches, theaters and saloons, banned public gatherings and urged masks, with very different timing and strictness. Around 675,000 Americans died over the whole pandemic, and estimates of deaths worldwide run to about 50 million. Wartime censorship shaped reporting in many countries.",
+    "reading_notes": "Look for closure orders, advertisements for remedies, and how local officials played down or played up the danger. 'Spanish influenza' was the common name; Spain was neutral and its press reported the disease openly.",
+    "questions": ["What public-health orders did cities issue?", "Which remedies were advertised?", "How did officials describe the danger?"]
+  },
+  {
+    "id": "armistice-1918",
+    "title": "The Armistice of November 1918",
+    "start": "1918-11-07", "end": "1918-11-16",
+    "loc_query": "armistice signed",
+    "ia_terms": ["armistice"],
+    "context": "The armistice ending fighting on the Western Front was signed early on November 11, 1918, in a railway carriage in the forest of Compiègne, and took effect at 11 a.m. Paris time. Four days earlier, on November 7, a premature United Press report that an armistice had been signed set off celebrations across the United States before it was denied.",
+    "reading_notes": "Compare the 'false armistice' coverage of November 7-8 with the real news of November 11. Look at how the terms were summarized for readers.",
+    "questions": ["How was the false armistice reported and then corrected?", "What terms did papers say Germany accepted?", "How were celebrations described?"]
+  },
+  {
+    "id": "nineteenth-amendment",
+    "title": "Ratification of the 19th Amendment",
+    "start": "1920-08-18", "end": "1920-08-31",
+    "loc_query": "suffrage amendment ratified tennessee",
+    "ia_terms": ["suffrage"],
+    "context": "On August 18, 1920, Tennessee became the 36th state to ratify the 19th Amendment, giving it the three-quarters of states needed to bar denial of the vote on account of sex. The deciding vote in the Tennessee House came from 24-year-old Harry Burn, who changed his vote after a letter from his mother. Opponents tried to reverse the vote, but Secretary of State Bainbridge Colby certified the amendment on August 26, 1920.",
+    "reading_notes": "Many Black women, especially in the South, remained kept from voting by poll taxes, literacy tests and violence long after 1920. Watch for whose voices the coverage includes.",
+    "questions": ["How was Harry Burn's vote reported?", "What did opponents try after the vote?", "When could women first vote in the 1920 election?"]
+  },
+  {
+    "id": "lindbergh-1927",
+    "title": "Lindbergh's Transatlantic Flight",
+    "start": "1927-05-20", "end": "1927-06-15",
+    "loc_query": "lindbergh paris flight",
+    "ia_terms": ["Lindbergh"],
+    "context": "Charles Lindbergh took off from Roosevelt Field, Long Island, on May 20, 1927, and landed at Le Bourget, near Paris, on the evening of May 21, about 33 and a half hours later. It was the first solo nonstop flight across the Atlantic, and it won the $25,000 Orteig Prize. His plane was the Spirit of St. Louis. He became an instant celebrity, and newspapers covered his return to the United States in June at enormous length.",
+    "reading_notes": "A study in mass-media celebrity. Compare factual flight reports with human-interest coverage of Lindbergh's mother and the crowds in Paris.",
+    "questions": ["How was the landing in Paris described?", "What did Lindbergh say about the flight?", "How was his return welcomed?"]
+  },
+  {
+    "id": "crash-1929",
+    "title": "The Stock Market Crash of 1929",
+    "start": "1929-10-24", "end": "1929-11-15",
+    "loc_query": "stock market crash",
+    "ia_terms": ["stock", "market"],
+    "context": "Prices on the New York Stock Exchange fell sharply on Thursday, October 24, 1929 ('Black Thursday'), when leading bankers organized buying to steady the market, and collapsed again on Monday, October 28, and Tuesday, October 29 ('Black Tuesday'), when about 16 million shares changed hands. The crash wiped out paper fortunes and is often taken as the start of the Great Depression, though historians stress that its causes and effects were broader.",
+    "reading_notes": "Watch how officials and business leaders reassured the public, and how quickly papers called the worst over. Ticker delays meant readers often learned prices hours late.",
+    "questions": ["What did bankers do on October 24?", "How did officials reassure investors?", "How were small investors affected?"]
+  }
+]
