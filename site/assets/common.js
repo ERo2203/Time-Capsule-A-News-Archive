@@ -9,14 +9,23 @@ export function longDate(iso) {
   return `${MONTHS[m - 1]} ${d}, ${y}`;
 }
 
-export const SOURCE_LABEL = { loc: "Chronicling America", ia: "Internet Archive", local: "Local scan" };
+export const SOURCE_LABEL = {
+  loc: "Chronicling America", ia: "Internet Archive", gazette: "Gazette of India",
+  headline: "News headline", local: "Local scan",
+};
 
-/** Chicago-style newspaper citation for one page. */
-export function citation(page) {
+export const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch (_) { return url; } };
+
+/** Chicago-style citation for one page (and, for headlines, the headline itself). */
+export function citation(page, chunk) {
   const where = page.place ? ` (${page.place})` : "";
+  if (page.src === "headline") {
+    const title = chunk ? `"${chunk.text.replace(/[.\s]+$/, "")}." ` : "";
+    return `${title}${page.paper}${where}, ${longDate(page.date)}. ${page.url}`;
+  }
   const seq = page.seq ? `, image ${page.seq}` : "";
   const repo = page.src === "loc" ? "Library of Congress, Chronicling America"
-    : page.src === "ia" ? "Internet Archive" : "Local scan";
+    : page.src === "ia" || page.src === "gazette" ? "Internet Archive" : "Local scan";
   return `${page.paper}${where}, ${longDate(page.date)}${seq}. ${repo}. ${page.url}`;
 }
 
@@ -26,7 +35,8 @@ export function scanCrop(page, bbox, scale = 50) {
   return `${page.iiif}/pct:${r}/pct:${scale}/0/default.jpg`;
 }
 
-export function qualityMeter(q) {
+export function qualityMeter(q, src) {
+  if (src === "headline") return `<span class="q" title="Born-digital headline: no OCR">born-digital</span>`;
   const cls = q >= 0.85 ? "" : q >= 0.7 ? "mid" : "low";
   const label = q >= 0.85 ? "clean OCR" : q >= 0.7 ? "some OCR noise" : "noisy OCR";
   return `<span class="q ${cls}" title="Heuristic OCR quality ${q.toFixed(2)} (share of letters, word shapes and common words)"><i><b style="width:${Math.round(q * 100)}%"></b></i>${label}</span>`;

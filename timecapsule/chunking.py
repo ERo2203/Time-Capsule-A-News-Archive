@@ -65,7 +65,7 @@ def _windows(text: str) -> list[str]:
         end = min(len(words), i + TARGET_WORDS)
         # extend up to 40 words to finish the sentence
         for j in range(end, min(len(words), end + 40)):
-            if re.search(r"[.!?][\"']?$", words[j - 1]):
+            if re.search(r"[.!?\u0964][\"']?$", words[j - 1]):
                 end = j
                 break
         out.append(" ".join(words[i:end]))
@@ -77,6 +77,13 @@ def _windows(text: str) -> list[str]:
 
 def chunk_page(page: Page) -> list[Chunk]:
     pieces: list[tuple[str, tuple | None, float | None]] = []
+    if page.source == "headline":
+        # born-digital headline: one short passage, no OCR to clean or score
+        return [Chunk(
+            id=f"{page.id}#0", page_id=page.id, text=page.text, source=page.source,
+            newspaper=page.newspaper, date=page.date, url=page.url, place=page.place,
+            collection=page.collection, section=page.section, quality=1.0,
+        )]
     if page.blocks:
         for b in _merge_small_blocks(page.blocks):
             pieces.append((clean_ocr_text(b.text), b.bbox, b.confidence))
@@ -99,6 +106,7 @@ def chunk_page(page: Page) -> list[Chunk]:
             place=page.place,
             page=page.page,
             collection=page.collection,
+            section=page.section,
             bbox=bbox,
             iiif=page.iiif,
             ocr_confidence=conf,

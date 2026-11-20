@@ -71,10 +71,13 @@ def cmd_ask(args):
         print(textwrap.fill(ans.written, 100, replace_whitespace=False) + "\n")
     cov = ans.coverage
     if cov["passages"]:
-        print(f"Evidence: {cov['passages']} passages from {cov['newspapers']} newspapers, "
+        print(f"Evidence: {cov['passages']} passages from {cov['newspapers']} "
+              f"{'source' if cov['newspapers'] == 1 else 'sources'}, "
               f"{cov['first_date']} to {cov['last_date']}\n")
     for e in sorted(ans.evidence, key=lambda e: e.chunk.date):
-        print(f"[{e.n}] {e.chunk.citation()}  (OCR quality {e.chunk.quality:.2f})")
+        q = "headline, born-digital" if e.chunk.source == "headline" else f"OCR quality {e.chunk.quality:.2f}"
+        sec = f" [{e.chunk.section}]" if e.chunk.section else ""
+        print(f"[{e.n}] {e.chunk.citation()}{sec}  ({q})")
         print(w.fill(f'"{e.quote}"'))
         print(f"    {e.chunk.url}")
         if e.chunk.scan_crop_url():

@@ -35,10 +35,48 @@ def search(start: str, end: str, rows: int = 50, extra: str = "") -> list[dict]:
     return json.loads(raw)["response"]["docs"]
 
 
-def issue_text(identifier: str) -> str:
-    raw = get(f"https://archive.org/stream/{identifier}/{identifier}_djvu.txt", min_interval=1.5)
+def metadata(identifier: str) -> dict:
+    return json.loads(get(f"https://archive.org/metadata/{identifier}", min_interval=1.0))
+
+
+def issue_text(identifier: str, files: list[dict] | None = None) -> str:
+    """Full OCR text of an item. Most items name it ``<id>_djvu.txt``; some
+    (e.g. the Gazette of India) use another stem, found in the file list."""
+    name = f"{identifier}_djvu.txt"
+    if files is not None:
+        name = next((f["name"] for f in files if f["name"].endswith("_djvu.txt")), name)
+    raw = get(f"https://archive.org/stream/{identifier}/{name}", min_interval=1.5)
     m = _PRE.search(raw.decode("utf-8", "replace"))
     return html.unescape(m.group(1)) if m else ""
+
+
+def fetch_items(identifiers: list[str], collection: str = "", source: str = "ia",
+                newspaper: str | None = None, place: str = "", section: str = "",
+                rights: str = RIGHTS) -> Iterator[Page]:
+    """Yield specific Internet Archive items by identifier (e.g. ones already in your archive)."""
+    for ident in identifiers:
+        meta = metadata(ident)
+        md = meta.get("metadata", {})
+        text = issue_text(ident, meta.get("files", []))
+        if not text:
+            print(f"  ! no OCR text for {ident}")
+            continue
+        langs = md.get("language", "en")
+        yield Page(
+            id=f"{source}:{ident}",
+            source=source,
+            newspaper=newspaper or _name({"title": md.get("title", ident), "identifier": ident}),
+            place=place or (md.get("coverage") or ""),
+            date=(md.get("date") or "")[:10],
+            page=None,
+            url=f"https://archive.org/details/{ident}",
+            text=text,
+            language="+".join(langs) if isinstance(langs, list) else langs,
+            ocr_engine=f"Internet Archive OCR ({md.get('ocr', 'unknown engine')})",
+            rights=rights,
+            collection=collection,
+            section=section,
+        )
 
 
 def _name(doc: dict) -> str:

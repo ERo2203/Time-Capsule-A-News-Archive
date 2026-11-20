@@ -40,6 +40,7 @@ class Page:
     ocr_engine: str = ""
     rights: str = ""
     collection: str = ""
+    section: str = ""  # e.g. a headline's topic, or a gazette's part
     blocks: list[Block] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
@@ -67,6 +68,7 @@ class Chunk:
     place: str = ""
     page: int | None = None
     collection: str = ""
+    section: str = ""
     bbox: tuple[float, float, float, float] | None = None
     iiif: str | None = None
     ocr_confidence: float | None = None

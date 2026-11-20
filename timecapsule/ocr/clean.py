@@ -38,6 +38,21 @@ _COMMON = set(
 )
 
 
+_INDIC = re.compile(r"[\u0900-\u0963\u0966-\u0d7f]")
+_INDIC_WORD = re.compile(r"[\u0900-\u0963\u0966-\u0d7f]+")
+
+
+def _indic_quality(text: str, indic_chars: int) -> float:
+    """Quality for Indic-script text: share of script characters among
+    non-space characters, and share of plausibly sized words."""
+    non_space = sum(not c.isspace() for c in text) or 1
+    words = _INDIC_WORD.findall(text)
+    if len(words) < 5:
+        return 0.0
+    plausible = sum(1 for w in words if 1 < len(w) < 20) / len(words)
+    return round(min(1.0, 0.5 * min(1.0, indic_chars / non_space / 0.85) + 0.5 * plausible), 3)
+
+
 def normalize(text: str) -> str:
     """Unicode-normalize and replace ligatures / long s / typographic quotes."""
     text = unicodedata.normalize("NFKC", text)
@@ -73,6 +88,9 @@ def quality_score(text: str) -> float:
     It is a rough signal, not a measure of character accuracy; use it to rank
     and to warn readers, not to make claims about a source.
     """
+    indic = len(_INDIC.findall(text))
+    if indic > sum(c.isascii() and c.isalpha() for c in text):
+        return _indic_quality(text, indic)
     words = _WORD.findall(text)
     if len(words) < 5:
         return 0.0

@@ -37,6 +37,16 @@ SOURCES = {
         "publisher": "Internet Archive",
         "url": "https://archive.org/details/newspapers",
     },
+    "headline": {
+        "name": "Indian news headlines (project archive)",
+        "publisher": "Headlines and links from Indian outlets, collected August 2020",
+        "url": "",
+    },
+    "gazette": {
+        "name": "The Gazette of India",
+        "publisher": "Government of India; digitized by Public.Resource.Org and the Internet Archive",
+        "url": "https://archive.org/details/gazetteofindia",
+    },
     "local": {"name": "Local scans", "publisher": "Contributed scans, OCR'd with Tesseract", "url": ""},
 }
 
@@ -91,10 +101,11 @@ def export_site(pages, chunks: list[Chunk], site_dir: Path = SITE_DATA) -> None:
         shard_pages = []
         for pid in page_ids:
             p = page_meta[pid]
-            shard_pages.append({
+            entry = {
                 "id": pid, "src": p.source, "paper": p.newspaper, "place": p.place, "date": p.date,
-                "seq": p.page, "url": p.url, "iiif": p.iiif, "conf": p.ocr_confidence, "engine": p.ocr_engine,
-            })
+                "seq": p.page, "url": p.url, "iiif": p.iiif, "sec": p.section,
+            }
+            shard_pages.append({k: v for k, v in entry.items() if v not in (None, "")})  # keep shards small
         shard_chunks = [[idx[c.page_id], c.text, list(c.bbox) if c.bbox else None, c.quality] for c in cs]
         fname = f"shard-{cid}.json"
         (site_dir / fname).write_text(json.dumps({"pages": shard_pages, "chunks": shard_chunks},
@@ -124,6 +135,10 @@ def export_site(pages, chunks: list[Chunk], site_dir: Path = SITE_DATA) -> None:
             "passages": total_passages,
             "newspapers": len({p.newspaper for p in pages}),
             "places": len({p.place for p in pages if p.place}),
+            "scanned": sum(p.source != "headline" for p in pages),
+            "scanned_titles": len({p.newspaper for p in pages if p.source != "headline"}),
+            "headlines": sum(p.source == "headline" for p in pages),
+            "outlets": len({p.newspaper for p in pages if p.source == "headline"}),
         },
         "collections": manifest_cols,
     }

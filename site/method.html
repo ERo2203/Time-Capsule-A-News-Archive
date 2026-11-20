@@ -71,8 +71,11 @@
 
     <h3>Retrieval details</h3>
     <ul>
-      <li>Tokenization: lowercase, accents and long s folded, stopwords removed, plural-only stemming (Harman's
-        S-stemmer) so names are not mangled.</li>
+      <li>Tokenization: lowercase, Latin accents and long s folded, stopwords removed, plural-only stemming
+        (Harman's S-stemmer) so names are not mangled. Indic scripts (Devanagari, Bengali, Gurmukhi, Gujarati,
+        Odia, Tamil, Telugu, Kannada, Malayalam) and Urdu are tokenized too, with their vowel signs kept, so
+        Hindi passages in the Gazette of India can be searched in Hindi. OCR-misreading expansion applies to
+        Latin-script words only.</li>
       <li>Ranking: BM25 (k1 = 1.2, b = 0.75), boosted for passages that match more of the question's words, times
         a quality prior of 0.6 + 0.4 × quality.</li>
       <li>Diversity: at most two passages per page and four per newspaper in the top results.</li>
@@ -129,7 +132,7 @@ timecapsule ask "..." --claude                         # needs: pip install -e "
 </main>
 <footer>
   <div class="wrap">
-    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. All pages were published before 1931. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
     <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
   </div>
 </footer>

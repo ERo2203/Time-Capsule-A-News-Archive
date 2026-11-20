@@ -22,7 +22,8 @@ from .models import Chunk
 from .retrieval import Filters, Hit, Retriever
 from .retrieval.text import tokenize
 
-_SENT_SPLIT = re.compile(r"(?<=[.!?])[\"']?\s+(?=[\"'A-Z])")
+# Sentence ends: Latin punctuation before a capital, or the Devanagari danda.
+_SENT_SPLIT = re.compile(r"(?<=[.!?])[\"']?\s+(?=[\"'A-Z])|(?<=[\u0964\u0965])\s+")
 
 
 @dataclass

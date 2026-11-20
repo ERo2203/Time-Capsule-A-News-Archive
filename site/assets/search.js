@@ -8,7 +8,9 @@ having he her here hers herself him himself his how i if in into is it its itsel
 myself no nor not now of off on once only or other our ours ourselves out over own same she should so
 some such than that the their theirs them themselves then there these they this those through to too
 under until up very was we were what when where which while who whom why will with would you your
-yours yourself yourselves said also upon shall`.split(/\s+/));
+yours yourself yourselves said also upon shall
+का के की को में से पर है हैं और या यह इस एक भी तथा द्वारा लिए किया गया था थे`.split(/\s+/));
+const TOKEN = /[a-z0-9\u0900-\u0963\u0966-\u0d7f\u0621-\u064a\u0660-\u0669\u0679-\u06d3]+/g;
 
 // Research-question framing words: dropped from queries only (see text.py).
 const QUESTION_WORDS = new Set(`report reports reported reporting describe described say says newspaper newspapers paper papers
@@ -40,7 +42,7 @@ export function stem(w) {
 }
 
 export function rawTokens(text) {
-  return (fold(text).match(/[a-z0-9]+/g) || []).filter((t) => t.length > 1 && !STOPWORDS.has(t));
+  return (fold(text).match(TOKEN) || []).filter((t) => t.length > 1 && !STOPWORDS.has(t));
 }
 
 export const tokenize = (text) => rawTokens(text).map(stem);
@@ -116,7 +118,7 @@ export class Archive {
     for (const raw of queryTokens(query)) {
       const t = stem(raw);
       terms.set(t, { term: t, weight: 1, origin: raw });
-      if (!fuzzy || raw.length < 5 || /^\d+$/.test(raw)) continue;
+      if (!fuzzy || raw.length < 5 || /^\d+$/.test(raw) || !/^[\x00-\x7f]+$/.test(raw)) continue;
       const dfT = this.df(t);
       const cands = [];
       for (const v of variants(raw)) {
@@ -172,7 +174,7 @@ export class Archive {
   }
 }
 
-const SENT_SPLIT = /(?<=[.!?])["']?\s+(?=["'A-Z])/;
+const SENT_SPLIT = /(?<=[.!?])["']?\s+(?=["'A-Z])|(?<=[\u0964\u0965])\s+/;
 
 export function bestSentence(text, weights, maxWords = 60) {
   const sents = text.replace(/\n/g, " ").split(SENT_SPLIT).map((s) => s.trim()).filter((s) => s.split(/\s+/).length >= 4);

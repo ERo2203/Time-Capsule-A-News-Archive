@@ -29,8 +29,9 @@
   <div class="narrow">
     <div class="kicker">Sources &amp; provenance</div>
     <h2 style="margin-top:4px">Where every page comes from</h2>
-    <p class="lede">The archive is built only from openly published digitizations of newspapers printed before
-      1931, which are in the public domain in the United States. Each passage keeps its newspaper title, place,
+    <p class="lede">The historical collections are built only from openly published digitizations of newspapers
+      printed before 1931, which are in the public domain in the United States. The India desk adds material
+      from this project's own archive, described below. Each passage keeps its newspaper title, place,
       date, page or image number, the OCR engine that read it, and a link to the original scan.</p>
 
     <h3>Chronicling America <span class="muted">· Library of Congress</span></h3>
@@ -57,6 +58,29 @@
       <li><b>Rights:</b> issues here were published before 1931; check each item's page for any terms set by its contributor.</li>
     </ul>
 
+    <h3 id="india">India desk: from this project's archive</h3>
+    <p>The first version of this project gathered two Indian sources. Both are now searchable alongside the
+      historical newspapers.</p>
+    <ul>
+      <li><b>Indian news headlines, August 2020.</b> 7,648 headlines from 87 Indian outlets, among
+        them The Times of India, The Indian Express, NDTV, News18, Mint, Moneycontrol, The Hindu, Deccan Herald,
+        The Tribune, Scroll.in, The Wire and ThePrint. They were selected from a ~108,000-headline dataset by
+        outlet. Each record keeps the headline, outlet, date, the topic the aggregator assigned, and a link to
+        the article. <b>Only headlines and links are stored</b>; article text stays with the publishers, who hold
+        its copyright. Citations name the outlet and link to the article. Some links may have moved since 2020.</li>
+      <li><b>The Gazette of India, 30 September 2000, Part III, Section 4.</b> The Government of India's official
+        journal, in Hindi and English. This is the issue the original scraper targeted. We read it from the
+        <a href="https://archive.org/details/in.gazette.central.w.2000-09-30.153">Internet Archive copy</a> in the
+        <a href="https://archive.org/details/gazetteofindia">gazetteofindia collection</a>, digitized by
+        Public.Resource.Org with OCR (Google Cloud Vision) covering both scripts. Search works in English and
+        Hindi. Citations are to the issue.</li>
+    </ul>
+    <p>Other open sources for Indian newspapers and gazettes: the
+      <a href="https://archive.org/details/gazetteofindia">Gazette of India collection</a> (hundreds of thousands
+      of issues), the <a href="https://egazette.gov.in/">e-Gazette of India</a>, the
+      <a href="https://eap.bl.uk/">British Library Endangered Archives Programme</a> (including Indian periodicals),
+      and the <a href="https://www.indianculture.gov.in/">Indian Culture portal</a> of the Ministry of Culture.</p>
+
     <h3>Your own scans</h3>
     <p>The Python toolkit can OCR a folder of newspaper page images with <a href="https://github.com/tesseract-ocr/tesseract">Tesseract</a>,
       keeping each paragraph's position and confidence, and add them to the archive. See <a href="method.html#run">running it yourself</a>.</p>
@@ -80,7 +104,7 @@
     <h3>Every newspaper in this archive</h3>
   </div>
   <div class="table-wrap"><table>
-    <thead><tr><th>Newspaper</th><th>Place</th><th>Source</th><th>Collections</th></tr></thead>
+    <thead><tr><th>Newspaper or outlet</th><th>Place</th><th>Source</th><th>Collections</th></tr></thead>
     <tbody id="papers"><tr><td colspan="4">Loading ...</td></tr></tbody>
   </table></div>
   <p class="small muted sans" id="built"></p>
@@ -101,7 +125,7 @@ document.getElementById("built").textContent = `${rows.size} titles. Archive bui
 </script>
 <footer>
   <div class="wrap">
-    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. All pages were published before 1931. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
     <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
   </div>
 </footer>

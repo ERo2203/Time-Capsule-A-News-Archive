@@ -1,5 +1,5 @@
 import { bestSentence, fold, stem } from "./search.js";
-import { citation, esc, loadArchive, loadManifest, longDate, qualityMeter, scanCrop, SOURCE_LABEL } from "./common.js";
+import { citation, esc, hostOf, loadArchive, loadManifest, longDate, qualityMeter, scanCrop, SOURCE_LABEL } from "./common.js";
 
 const $ = (s) => document.querySelector(s);
 const form = $("#ask-form"), input = $("#q"), status = $("#status"), results = $("#results");
@@ -13,10 +13,18 @@ async function init() {
   manifest = await loadManifest();
   colById = Object.fromEntries(manifest.collections.map((c) => [c.id, c]));
   const sel = $("#f-col");
-  for (const c of manifest.collections) sel.add(new Option(`${c.title} (${c.stats.dates[0].slice(0, 4)})`, c.id));
+  const groups = {};
+  for (const c of manifest.collections) (groups[c.group || "Historical events"] ||= []).push(c);
+  for (const [g, cs] of Object.entries(groups)) {
+    const og = document.createElement("optgroup");
+    og.label = g;
+    for (const c of cs) og.append(new Option(`${c.title} (${c.stats.dates[0].slice(0, 4)})`, c.id));
+    sel.append(og);
+  }
   renderExamples();
   const t = manifest.totals;
-  $("#totals").textContent = `${t.passages.toLocaleString()} passages from ${t.pages.toLocaleString()} scanned pages and issues of ${t.newspapers} newspapers`;
+  $("#totals").textContent = `${t.passages.toLocaleString()} passages from ${t.scanned.toLocaleString()} scanned pages and issues of ${t.scanned_titles} titles`
+    + (t.headlines ? `, plus ${t.headlines.toLocaleString()} headlines from ${t.outlets} Indian outlets` : "");
 
   const bar = $("#loader b");
   setStatus("Loading the archive into your browser ...");
@@ -35,8 +43,11 @@ async function init() {
 
 function renderExamples() {
   const box = $("#examples");
-  const picks = manifest.collections.flatMap((c) => (c.questions || []).slice(0, 1).map((q) => [q, c.id]));
-  box.innerHTML = picks.slice(0, 8).map(([q, c]) => `<button type="button" class="chip" data-q="${esc(q)}" data-c="${c}">${esc(q)}</button>`).join("");
+  const first = (cs) => cs.flatMap((c) => (c.questions || []).slice(0, 1).map((q) => [q, c.id]));
+  const india = manifest.collections.filter((c) => c.group === "India desk");
+  const hist = manifest.collections.filter((c) => c.group !== "India desk");
+  const picks = [...first(hist).slice(0, 6), ...first(india)];
+  box.innerHTML = picks.map(([q, c]) => `<button type="button" class="chip" data-q="${esc(q)}" data-c="${c}">${esc(q)}</button>`).join("");
 }
 
 document.addEventListener("click", (e) => {
@@ -73,19 +84,22 @@ function run() {
   const res = archive.search(q, { k: 10, filter });
   const ms = Math.round(performance.now() - t0);
   const weights = new Map(res.qterms.map((t) => [t.term, t.weight * archive.idf(t.term)]));
-  const evidence = res.hits.map((h, i) => ({ n: i + 1, chunk: h.chunk, quote: bestSentence(h.chunk.text, weights) }));
+  const evidence = res.hits.map((h, i) => ({
+    n: i + 1, chunk: h.chunk,
+    quote: h.chunk.page.src === "headline" ? h.chunk.text : bestSentence(h.chunk.text, weights),
+  }));
   last = { q, f, res, evidence, weights };
   setStatus(`${res.total.toLocaleString()} matching passages in ${ms} ms. Showing the ${evidence.length} strongest, at most two per page and four per newspaper.`);
   render();
 }
 
 function highlight(text, terms) {
-  return esc(text).replace(/[A-Za-z0-9ſ]+/g, (w) => (terms.has(stem(fold(w))) ? `<mark>${w}</mark>` : w));
+  return esc(text).replace(/[A-Za-z0-9ſ\u00c0-\u024f\u0900-\u0963\u0966-\u0d7f\u0621-\u064a\u0660-\u0669\u0679-\u06d3]+/g, (w) => (terms.has(stem(fold(w))) ? `<mark>${w}</mark>` : w));
 }
 
 function timelineSVG(chunks) {
   const dates = chunks.map((c) => c.page.date).filter(Boolean).sort();
-  if (dates.length < 2) return "";
+  if (dates.length < 2 || dates[0] === dates[dates.length - 1]) return "";
   const toDay = (d) => Date.UTC(+d.slice(0, 4), +d.slice(5, 7) - 1, +d.slice(8, 10)) / 864e5;
   const a = toDay(dates[0]), z = toDay(dates[dates.length - 1]);
   const byYear = z - a > 366;  // matches span several events: count per year instead of per day
@@ -121,7 +135,7 @@ function render() {
   const places = new Set(evidence.map((e) => e.chunk.page.place).filter(Boolean));
   const dates = evidence.map((e) => e.chunk.page.date).sort();
   const expansions = res.qterms.filter((t) => t.weight < 1).map((t) => t.term);
-  const low = evidence.filter((e) => e.chunk.quality < 0.7).map((e) => e.n);
+  const low = evidence.filter((e) => e.chunk.quality < 0.7 && e.chunk.page.src !== "headline").map((e) => e.n);
   const shown = order === "date" ? [...evidence].sort((a, b) => a.chunk.page.date.localeCompare(b.chunk.page.date)) : evidence;
   const col = matchedCollection();
 
@@ -131,7 +145,7 @@ function render() {
       <div class="kicker">Evidence brief</div>
       <h2 id="brief-h">${esc(q)}</h2>
       <p class="coverage">${evidence.length} passages from <b>${papers.size}</b> newspaper${papers.size > 1 ? "s" : ""}${places.size ? ` in ${places.size} place${places.size > 1 ? "s" : ""}` : ""}, published ${esc(longDate(dates[0]))}${dates[0] !== dates[dates.length - 1] ? ` to ${esc(longDate(dates[dates.length - 1]))}` : ""}.
-      Every line below is quoted from the OCR text; nothing is generated.</p>
+      Every line below is quoted verbatim from the sources; nothing is generated.</p>
       ${timelineSVG(res.allMatches)}
       <p class="small muted sans">Bars: the top ${res.allMatches.length} matching passages by publication date.${expansions.length ? ` Also matched likely OCR misreadings: <i>${esc(expansions.slice(0, 8).join(", "))}</i>.` : ""}</p>
       ${low.length ? `<div class="note">Passage${low.length > 1 ? "s" : ""} ${low.join(", ")} ha${low.length > 1 ? "ve" : "s"} noisy OCR. Check the scan before quoting.</div>` : ""}
@@ -145,7 +159,7 @@ function render() {
       ${shown.map((e) => evCard(e, terms)).join("")}
     </section>
     <aside>
-      ${col ? `<div class="box"><div class="kicker">Historical context</div><h3>${esc(col.title)}</h3><p>${esc(col.context)}</p>
+      ${col ? `<div class="box"><div class="kicker">${col.group === "India desk" ? "About this source" : "Historical context"}</div><h3>${esc(col.title)}</h3><p>${esc(col.context)}</p>
         <p class="small"><b>Reading notes.</b> ${esc(col.reading_notes || "")}</p>
         <p class="small"><a href="collections.html#${col.id}">About this collection and its newspapers</a></p></div>` : ""}
       ${col && col.questions ? `<div class="box"><h3>Follow-up questions</h3><div class="chips">${col.questions.map((x) => `<button type="button" class="chip" data-q="${esc(x)}" data-c="${col.id}">${esc(x)}</button>`).join("")}</div></div>` : ""}
@@ -163,16 +177,19 @@ function evCard(e, terms) {
   const p = e.chunk.page;
   const crop = scanCrop(p, e.chunk.bbox);
   const first = [...terms][0] || "";
-  const orig = p.src === "ia" ? `${p.url}?q=${encodeURIComponent(first)}` : p.url;
+  const isIA = p.src === "ia" || p.src === "gazette";
+  const orig = isIA ? `${p.url}?q=${encodeURIComponent(first)}` : p.url;
+  const linkText = p.src === "headline" ? `Read the article at ${hostOf(p.url)}`
+    : isIA ? "Open the issue at the Internet Archive" : p.src === "loc" ? "Original page at the Library of Congress" : "Original";
   return `<article class="ev" data-id="${e.chunk.id}">
     <div class="meta"><span class="n">${e.n}</span><span class="paper">${esc(p.paper)}</span>
       <span class="where">${esc(p.place)}${p.place ? " · " : ""}${esc(longDate(p.date))}${p.seq ? ` · image ${p.seq}` : ""}</span>
-      <span class="badge">${esc(SOURCE_LABEL[p.src] || p.src)}</span>${qualityMeter(e.chunk.quality)}</div>
+      <span class="badge">${esc(SOURCE_LABEL[p.src] || p.src)}</span>${p.sec ? `<span class="badge">${esc(p.sec)}</span>` : ""}${qualityMeter(e.chunk.quality, p.src)}</div>
     <blockquote>${highlight(e.quote, terms)}</blockquote>
     <div class="actions">
-      <button type="button" data-act="full">Full passage</button>
+      ${p.src === "headline" ? "" : `<button type="button" data-act="full">Full passage</button>`}
       ${crop ? `<button type="button" data-act="scan">Show scan</button>` : ""}
-      <a href="${esc(orig)}" target="_blank" rel="noopener">${p.src === "ia" ? "Open issue at the Internet Archive" : "Original page at the Library of Congress"}</a>
+      <a href="${esc(orig)}" target="_blank" rel="noopener">${esc(linkText)}</a>
       <button type="button" data-act="cite">Copy citation</button>
     </div>
     <div class="slot"></div>
@@ -188,7 +205,7 @@ results.addEventListener("click", async (e) => {
   if (a) {
     e.preventDefault();
     if (a.id === "copy-all") {
-      const txt = last.evidence.map((x) => `[${x.n}] ${citation(x.chunk.page)}`).join("\n");
+      const txt = last.evidence.map((x) => `[${x.n}] ${citation(x.chunk.page, x.chunk)}`).join("\n");
       await navigator.clipboard.writeText(txt).catch(() => {});
       a.textContent = "Copied";
     } else {
@@ -210,7 +227,7 @@ results.addEventListener("click", async (e) => {
   const slot = card.querySelector(".slot");
   const act = btn.dataset.act;
   if (act === "cite") {
-    await navigator.clipboard.writeText(citation(chunk.page)).catch(() => {});
+    await navigator.clipboard.writeText(citation(chunk.page, chunk)).catch(() => {});
     btn.textContent = "Copied";
     setTimeout(() => (btn.textContent = "Copy citation"), 1500);
   } else if (act === "full") {

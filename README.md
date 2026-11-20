@@ -12,9 +12,10 @@ Nothing is generated unless you ask for it, and generated summaries must cite th
 - **Python toolkit:** harvest sources, OCR your own scans, rebuild the archive, and ask questions from the
   command line, optionally with written answers from Claude.
 
-The archive currently holds **191 scanned pages and issues from 126 newspapers in 105 places, printed
-1865-1929**, across 12 research collections: 27,668 searchable passages in the Python corpus, of which 9,376
-(the cleanest OCR, and the Internet Archive text nearest each event) are on the website.
+The archive holds **191 scanned pages and issues from 126 newspapers in 105 places, printed 1865-1929**,
+across 12 historical collections, plus an **India desk** built from this project's own archive: **7,648 headlines
+from 87 Indian news outlets** (August 2020) and the **bilingual Hindi/English Gazette of India** of 30 September 2000.
+That is 36,648 searchable passages in the Python corpus, 18,354 of them on the website.
 
 ## Sources
 
@@ -22,9 +23,11 @@ The archive currently holds **191 scanned pages and issues from 126 newspapers i
 |---|---|---|---|---|
 | [Chronicling America](https://www.loc.gov/collections/chronicling-america/) | Library of Congress & NEH National Digital Newspaper Program: US newspapers 1756-1963 | ALTO XML from NDNP partners (word boxes + confidence) | Page and printed region (IIIF crop) | No known restrictions |
 | [Internet Archive Newspapers](https://archive.org/details/newspapers) | Over a million digitized issues worldwide | Internet Archive OCR (Tesseract) | Issue (deep link to in-scan search) | Pre-1931, US public domain; check item terms |
+| Indian news headlines (project archive) | 7,648 headlines from 87 Indian outlets (Times of India, Indian Express, NDTV, The Hindu, Mint, ...), Aug 2020, from `legacy/Source Provider.zip` | Born-digital | Outlet, date, link to the article | Headline + link only; article text not stored |
+| [The Gazette of India](https://archive.org/details/gazetteofindia) | Government of India's official journal; the 30 Sep 2000 issue (Part III, Sec. 4) the original scraper targeted | Internet Archive OCR (Google Cloud Vision), Hindi + English | Issue | Government publication, digitized by Public.Resource.Org |
 | Your own scans | Any page images you have rights to | Tesseract via `timecapsule ocr` | Whatever your sidecar metadata provides | Yours |
 
-Only pages published before 1931 are included. The [Sources page](site/sources.html) documents each source,
+The historical collections include only pages published before 1931. The [Sources page](site/sources.html) documents each source,
 how it is accessed, and other open archives to explore (Trove, Papers Past, Delpher, Europeana Newspapers,
 Gallica, CDNC, American Stories).
 
@@ -48,6 +51,17 @@ context, reading notes on how the event was (mis)reported, and starter questions
 | Ratification of the 19th Amendment | Aug 18-31, 1920 |
 | Lindbergh's Transatlantic Flight | May 20 - Jun 15, 1927 |
 | The Stock Market Crash of 1929 | Oct 24 - Nov 15, 1929 |
+| **India desk:** Indian Headlines, August 2020 | Aug 1-18, 2020 |
+| **India desk:** The Gazette of India, 30 September 2000 | Sep 30, 2000 |
+
+Search works in **Hindi and other Indian scripts** as well as English: the tokenizer keeps Devanagari, Bengali,
+Gurmukhi, Gujarati, Odia, Tamil, Telugu, Kannada, Malayalam and Urdu text (with vowel signs intact), sentence
+splitting understands the danda (।), and OCR quality scoring is script-aware.
+
+```bash
+timecapsule ask "सेवानिवृत्ति के पश्चात् निजी क्षेत्र में नियोजन" --collection gazette-of-india-2000
+timecapsule ask "Kozhikode plane crash" --collection india-headlines-2020
+```
 
 ## How it works
 
@@ -123,6 +137,10 @@ timecapsule harvest --only titanic --loc-pages 40 --ia-issues 8 --force
 # Add a new event: append an entry to corpus/collections.json, then
 timecapsule harvest --only my-new-event
 
+# Collections can also point at a headline file ("headlines_file") or at specific
+# Internet Archive items ("ia_items"), e.g. more Gazette of India issues from
+# https://archive.org/details/gazetteofindia
+
 # OCR your own scans (needs the tesseract binary)
 pip install -e ".[ocr]"
 timecapsule ocr ~/scans/bombay-chronicle-1919 --collection my-collection
@@ -151,7 +169,7 @@ corpus/collections.json research collections: date windows, queries, context, re
 data/corpus/            harvested pages and passages (gzip'd JSON Lines)
 site/                   GitHub Pages site (static HTML/CSS/JS + site/data shards)
 tests/                  unit tests, including the browser/Python parity test
-legacy/                 the original DistilBERT prototype, kept for reference
+legacy/                 the original prototype; its headline dataset feeds the India desk
 ```
 
 ## Publishing the site

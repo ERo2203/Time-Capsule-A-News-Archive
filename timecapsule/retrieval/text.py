@@ -17,7 +17,9 @@ STOPWORDS = frozenset(
     myself no nor not now of off on once only or other our ours ourselves out over own same she should so
     some such than that the their theirs them themselves then there these they this those through to too
     under until up very was we were what when where which while who whom why will with would you your
-    yours yourself yourselves said also upon shall""".split()
+    yours yourself yourselves said also upon shall"""
+    # common Hindi function words (bilingual Indian sources such as the Gazette of India)
+    """ का के की को में से पर है हैं और या यह इस एक भी तथा द्वारा लिए किया गया था थे""".split()
 )
 
 # Words that frame a research question ("How did papers report ...") but say
@@ -28,7 +30,10 @@ QUESTION_WORDS = frozenset(
     press coverage covered first later happen happened tell told""".split()
 )
 
-_TOKEN = re.compile(r"[a-z0-9]+")
+# Latin letters and digits, plus the Indic scripts (Devanagari, Bengali, Gurmukhi,
+# Gujarati, Odia, Tamil, Telugu, Kannada, Malayalam; danda punctuation excluded)
+# and Urdu letters, so Indian-language sources are searchable too.
+_TOKEN = re.compile(r"[a-z0-9\u0900-\u0963\u0966-\u0d7f\u0621-\u064a\u0660-\u0669\u0679-\u06d3]+")
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 
 # Character confusions typical of OCR on old newsprint (both directions listed).
@@ -40,9 +45,13 @@ OCR_CONFUSIONS = [
 ]
 
 
+_LATIN_MARKS = re.compile(r"[\u0300-\u036f]")
+
+
 def fold(text: str) -> str:
-    text = unicodedata.normalize("NFKD", text.replace("ſ", "s").lower())
-    return "".join(c for c in text if not unicodedata.combining(c))
+    """Lowercase, long s -> s, and strip Latin accents. Vowel signs of Indic
+    scripts are combining characters too, but they are kept: they are letters."""
+    return _LATIN_MARKS.sub("", unicodedata.normalize("NFKD", text.replace("ſ", "s").lower()))
 
 
 def stem(w: str) -> str:

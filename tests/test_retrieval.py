@@ -23,6 +23,7 @@ DOCS = [
     "White Star officials say the Titanic carried twenty lifeboats.",
     "Senate committee to investigate the loss of the Titanic.",
     "Titanic memorial fund opened by the mayor.",
+    "भारतीय स्टेट बैंक ने भारतीय रिज़र्व बैंक के अनुमोदन से प्रबंध निदेशक नियुक्त किया।",
 ]
 
 
@@ -84,7 +85,7 @@ def test_browser_engine_matches_python(tmp_path):
     mod = tmp_path / "search.mjs"
     mod.write_text((ROOT / "site/assets/search.js").read_text())
     queries = ["Titanic Carpathia survivors", "Seward assault", "influenza masks", "reward assassin",
-               "How did papers first report the Titanic?", "reported"]
+               "How did papers first report the Titanic?", "reported", "रिज़र्व बैंक अनुमोदन"]
     script = f"""
       import {{ Archive, tokenize }} from {json.dumps(str(mod))};
       const a = new Archive();

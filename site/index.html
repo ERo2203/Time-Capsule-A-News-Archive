@@ -37,7 +37,7 @@
       <label>Collection <select id="f-col"><option value="">All collections</option></select></label>
       <label>From <input id="f-from" type="date" min="1850-01-01" max="1930-12-31"></label>
       <label>To <input id="f-to" type="date" min="1850-01-01" max="1930-12-31"></label>
-      <label>Source <select id="f-src"><option value="">All sources</option><option value="loc">Chronicling America</option><option value="ia">Internet Archive</option></select></label>
+      <label>Source <select id="f-src"><option value="">All sources</option><option value="loc">Chronicling America</option><option value="ia">Internet Archive</option><option value="headline">Indian news headlines</option><option value="gazette">Gazette of India</option></select></label>
     </div>
     <div class="loader" id="loader"><b></b></div>
     <p class="status" id="status" aria-live="polite"></p>
@@ -55,7 +55,8 @@
           printed column.</p>
         <p>It is built for research: it never writes text the newspapers did not print, it shows how clean the OCR
           is, it tolerates OCR misspellings, and it spreads results across newspapers so one large daily cannot
-          drown out the rest. <span id="totals" class="muted"></span>.</p>
+          drown out the rest. Its <a href="collections.html#india-desk">India desk</a> brings in the Indian press
+          and the Gazette of India from this project's own archive. <span id="totals" class="muted"></span>.</p>
         <p><a href="method.html">How the pipeline works</a> · <a href="sources.html">Where the pages come from</a> ·
           <a href="collections.html">Browse the collections</a></p>
       </div>
@@ -63,6 +64,7 @@
         <li>Use period vocabulary: "wireless", "the grippe", "aeroplane".</li>
         <li>Names and places work best: "Carpathia", "Johnstown".</li>
         <li>Narrow by date to follow a story day by day.</li>
+        <li>The India desk is searchable in English and Hindi (the Gazette is bilingual).</li>
         <li>Likely OCR misreadings of your words are matched automatically.</li>
       </ul></div></aside>
     </section>
@@ -71,7 +73,7 @@
 <script type="module" src="assets/app.js"></script>
 <footer>
   <div class="wrap">
-    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. All pages were published before 1931. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
     <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
   </div>
 </footer>

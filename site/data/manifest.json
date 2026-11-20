@@ -12,6 +12,16 @@
    "publisher": "Internet Archive",
    "url": "https://archive.org/details/newspapers"
   },
+  "headline": {
+   "name": "Indian news headlines (project archive)",
+   "publisher": "Headlines and links from Indian outlets, collected August 2020",
+   "url": ""
+  },
+  "gazette": {
+   "name": "The Gazette of India",
+   "publisher": "Government of India; digitized by Public.Resource.Org and the Internet Archive",
+   "url": "https://archive.org/details/gazetteofindia"
+  },
   "local": {
    "name": "Local scans",
    "publisher": "Contributed scans, OCR'd with Tesseract",
@@ -19,10 +29,14 @@
   }
  },
  "totals": {
-  "pages": 191,
-  "passages": 9376,
-  "newspapers": 126,
-  "places": 105
+  "pages": 7840,
+  "passages": 18354,
+  "newspapers": 214,
+  "places": 115,
+  "scanned": 192,
+  "scanned_titles": 127,
+  "headlines": 7648,
+  "outlets": 87
  },
  "collections": [
   {
@@ -754,6 +768,180 @@
     "The Washington herald|Washington, D.C.|loc",
     "The Washington times|Washington [D.C.]|loc",
     "The producers news|Plentywood, Mont.|loc"
+   ]
+  },
+  {
+   "id": "india-headlines-2020",
+   "group": "India desk",
+   "title": "Indian Headlines, August 2020",
+   "start": "2020-08-01",
+   "end": "2020-08-18",
+   "headlines_file": "legacy/Source Provider.zip",
+   "context": "Headlines from 87 Indian news outlets, from The Times of India, The Hindu and The Indian Express to NDTV, Mint, Scroll.in and regional papers such as the Deccan Herald, The Tribune and The Sentinel. They were collected for this project's first version, almost all between 1 and 18 August 2020 (a few dozen older items came along). India was then in the 'Unlock 3' phase of easing its COVID-19 lockdown, and reported cases passed two million in early August. Other stories of that fortnight include the foundation-stone ceremony for the Ram temple in Ayodhya on 5 August, the Air India Express crash at Kozhikode on 7 August, and the violence in Bengaluru on 11 August.",
+   "reading_notes": "These are headlines only, with a link to each article; the article text is not stored, so open the link to read the story. Each record carries the topic the aggregator assigned (Nation, World, Business, Health and so on), which is not always the outlet's own section. Many outlets ran the same agency copy (PTI, ANI, IANS) under different headlines, and online headlines are written to be clicked. Some links may have moved or gone behind paywalls since 2020.",
+   "questions": [
+    "How did Indian outlets cover COVID-19 vaccine trials?",
+    "What was reported about the Kozhikode plane crash?",
+    "Ayodhya Ram temple bhoomi pujan",
+    "How did the business press report the economy and RBI?"
+   ],
+   "file": "shard-india-headlines-2020.json",
+   "stats": {
+    "pages": 7648,
+    "passages": 7648,
+    "newspapers": 87,
+    "places": [
+     "Bengaluru",
+     "Chandigarh",
+     "Chennai",
+     "Guwahati",
+     "Hyderabad",
+     "Kochi",
+     "Kolkata",
+     "Mumbai",
+     "New Delhi",
+     "Noida"
+    ],
+    "sources": {
+     "headline": 7648
+    },
+    "dates": [
+     "2017-10-16",
+     "2020-08-18"
+    ]
+   },
+   "titles": [
+    "91mobiles||headline",
+    "ANI (Asian News International)|New Delhi|headline",
+    "Bangalore Mirror|Bengaluru|headline",
+    "Bollywood Hungama|Mumbai|headline",
+    "Business Insider India||headline",
+    "Business Standard|New Delhi|headline",
+    "CNBC-TV18|Mumbai|headline",
+    "DNA|Mumbai|headline",
+    "Dainik Jagran (English)|Noida|headline",
+    "Deccan Chronicle|Hyderabad|headline",
+    "Deccan Herald|Bengaluru|headline",
+    "ESPN India||headline",
+    "Firstpost|Mumbai|headline",
+    "Hindustan Times|New Delhi|headline",
+    "India TV|Noida|headline",
+    "India Today|Noida|headline",
+    "India.com||headline",
+    "IndiaGlitz|Chennai|headline",
+    "Indiatimes||headline",
+    "Koimoi|Mumbai|headline",
+    "Mid-Day|Mumbai|headline",
+    "Mint|New Delhi|headline",
+    "Moneycontrol|Mumbai|headline",
+    "Mumbai Mirror|Mumbai|headline",
+    "NDTV|New Delhi|headline",
+    "National Herald|New Delhi|headline",
+    "News18|Noida|headline",
+    "Oneindia|Bengaluru|headline",
+    "OpIndia||headline",
+    "Pinkvilla|Mumbai|headline",
+    "Scroll.in||headline",
+    "The Economic Times|Mumbai|headline",
+    "The Free Press Journal|Mumbai|headline",
+    "The Hans India|Hyderabad|headline",
+    "The Hindu BusinessLine|Chennai|headline",
+    "The Hindu|Chennai|headline",
+    "The Indian Express|New Delhi|headline",
+    "The News Minute|Bengaluru|headline",
+    "The Quint|Noida|headline",
+    "The Sentinel|Guwahati|headline",
+    "The Siasat Daily|Hyderabad|headline",
+    "The Statesman|Kolkata|headline",
+    "The Telegraph|Kolkata|headline",
+    "The Times of India|Mumbai|headline",
+    "The Tribune|Chandigarh|headline",
+    "The Week|Kochi|headline",
+    "The Wire|New Delhi|headline",
+    "ThePrint|New Delhi|headline",
+    "Times Now|Mumbai|headline",
+    "Vogue India|Mumbai|headline",
+    "WION|Noida|headline",
+    "Zee News|Noida|headline",
+    "arunachaltimes.in||headline",
+    "bgr.in||headline",
+    "boomlive.in||headline",
+    "caravanmagazine.in||headline",
+    "cntraveller.in||headline",
+    "dailyo.in||headline",
+    "downtoearth.org.in||headline",
+    "duexpress.in||headline",
+    "edtimes.in||headline",
+    "eetindia.co.in||headline",
+    "expresscomputer.in||headline",
+    "expresshealthcare.in||headline",
+    "goodreturns.in||headline",
+    "ianslive.in||headline",
+    "ibtimes.co.in||headline",
+    "indiaeducationdiary.in||headline",
+    "indiasopinion.in||headline",
+    "inventiva.co.in||headline",
+    "kolkatanews24.co.in||headline",
+    "medicaldialogues.in||headline",
+    "millenniumpost.in||headline",
+    "nenow.in||headline",
+    "newsd.in||headline",
+    "newsheads.in||headline",
+    "odishatv.in||headline",
+    "primefeed.in||headline",
+    "sportscafe.in||headline",
+    "taxscan.in||headline",
+    "technosports.co.in||headline",
+    "techquila.co.in||headline",
+    "the12thman.in||headline",
+    "thebridge.in||headline",
+    "thedailychronicle.in||headline",
+    "tkbsen.in||headline",
+    "trak.in||headline"
+   ]
+  },
+  {
+   "id": "gazette-of-india-2000",
+   "group": "India desk",
+   "title": "The Gazette of India, 30 September 2000",
+   "start": "2000-09-30",
+   "end": "2000-09-30",
+   "ia_items": [
+    "in.gazette.central.w.2000-09-30.153"
+   ],
+   "ia_item_fields": {
+    "source": "gazette",
+    "newspaper": "The Gazette of India, Part III, Section 4",
+    "place": "New Delhi",
+    "section": "Part III, Section 4",
+    "rights": "Government of India publication, digitized by Public.Resource.Org and the Internet Archive (gazetteofindia collection)."
+   },
+   "context": "The Gazette of India is the Government of India's official journal of record, published in Hindi and English. Laws, rules, appointments and public notices take legal effect by appearing in it. This weekly issue's Part III, Section 4 carries 'Miscellaneous Notifications including Notifications, Orders, Advertisements and Notices issued by Statutory Bodies'. Here that means notices from the Reserve Bank of India and public-sector banks, such as lists of government securities reported lost under the Public Debt Act, 1944, and bank regulations on staff taking private employment after retirement. It is the issue the first version of this project scraped. This copy comes from the Internet Archive, whose OCR reads both the English and the Hindi pages.",
+   "reading_notes": "A gazette is a legal record, not a newspaper. Notices are formal and repetitive, and long tables (lists of securities, names and addresses) come out of OCR as broken fragments. The Hindi and English versions of a notice often appear side by side, so search in either language. Citations point to the issue; use the Internet Archive viewer to find the page.",
+   "questions": [
+    "Which securities were reported lost to the Reserve Bank of India?",
+    "Rules on bank officers taking private employment after retirement",
+    "सेवानिवृत्ति के पश्चात् निजी क्षेत्र में नियोजन",
+    "State Bank of India appointment of managing director"
+   ],
+   "file": "shard-gazette-of-india-2000.json",
+   "stats": {
+    "pages": 1,
+    "passages": 1330,
+    "newspapers": 1,
+    "places": [
+     "New Delhi"
+    ],
+    "sources": {
+     "gazette": 1
+    },
+    "dates": [
+     "2000-09-30",
+     "2000-09-30"
+    ]
+   },
+   "titles": [
+    "The Gazette of India, Part III, Section 4|New Delhi|gazette"
    ]
   }
  ]

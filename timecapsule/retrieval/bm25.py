@@ -53,7 +53,7 @@ class BM25Index:
         for raw in query_tokens(query):
             t = stem(raw)
             terms[t] = QueryTerm(t, 1.0, raw)
-            if not fuzzy or len(raw) < 5 or raw.isdigit():
+            if not fuzzy or len(raw) < 5 or raw.isdigit() or not raw.isascii():  # OCR variants are Latin-only
                 continue
             df_t = len(self.postings.get(t, ()))
             cands = []
