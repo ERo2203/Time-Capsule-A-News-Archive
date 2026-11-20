@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method & reading guide · The Time Capsule</title>
+<meta name="description" content="How The Time Capsule turns OCR'd newspapers into cited evidence, and how to read historical newspapers critically.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238c1c13'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='20' font-weight='700' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="top"><span>An open research archive</span><button class="theme-btn" type="button" aria-label="Toggle dark mode">Light / dark</button></div>
+    <h1><a href="index.html">The Time Capsule</a></h1>
+    <p class="tag">A reading room for historical newspapers: search OCR'd front pages, with every answer cited to the scan</p>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Ask the archive</a>
+      <a href="collections.html">Collections</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html" aria-current="page">Method &amp; reading guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="narrow">
+    <div class="kicker">Method</div>
+    <h2 style="margin-top:4px">From microfilm to cited evidence</h2>
+    <p class="lede">The Time Capsule is a small retrieval-augmented generation (RAG) system built for historical
+      sources. The retrieval half runs in your browser. The generation half is optional: by default the "answer"
+      is a set of verbatim, dated, cited quotations, and the Python toolkit can add a written summary from Claude
+      that must cite those same passages.</p>
+  </div>
+
+  <div class="pipeline" role="list" aria-label="Pipeline stages">
+    <div role="listitem"><b>1 · Harvest</b>Find pages for each event and date range through the Library of Congress and Internet Archive APIs.</div>
+    <div role="listitem"><b>2 · OCR</b>Read ALTO XML (word boxes and confidence), the Archive's OCR text, or run Tesseract on your own scans.</div>
+    <div role="listitem"><b>3 · Clean</b>Rejoin hyphenated words, fix long s and ligatures, drop ornament noise, score OCR quality.</div>
+    <div role="listitem"><b>4 · Chunk</b>Cut pages into ~150-word passages along printed blocks, so each keeps its box on the page.</div>
+    <div role="listitem"><b>5 · Retrieve</b>BM25 with OCR-misreading expansion, a quality prior and per-newspaper diversity.</div>
+    <div role="listitem"><b>6 · Answer</b>Quote the best sentence per passage, show coverage over time, attach context; optionally write a cited summary.</div>
+  </div>
+
+  <div class="narrow">
+    <h3>Why OCR needs special care</h3>
+    <p>Most digitized newspapers were scanned from decades-old microfilm and read by OCR software that struggles with
+      faded ink, narrow columns and period type. Character accuracy on 19th-century pages can be well below
+      90%, so "Titanic" may appear as "Tltanic" or "Titanio". A search engine that only matches exact words
+      silently misses that evidence. The Time Capsule handles this in three ways:</p>
+    <ul>
+      <li><b>OCR-aware query expansion.</b> Each search word is expanded to the misreadings an OCR engine is likely
+        to produce (rn↔m, li↔h, cl↔d, e↔c and single-letter slips) that actually occur in the archive. A variant
+        is only used if it is much rarer than the word itself, so real words such as "reward" are not
+        mistaken for misreadings of "Seward". Variants count for half as much as the word you typed.</li>
+      <li><b>A quality prior.</b> Every passage gets a 0–1 quality score from its share of letters, plausible word
+        shapes and common English words. Noisy passages rank a little lower but never disappear, and the
+        interface flags them.</li>
+      <li><b>The scan is one click away.</b> For Chronicling America pages, ALTO coordinates let us request just the
+        printed region of a passage from the Library's IIIF image server, so you can check the OCR against the page.</li>
+    </ul>
+
+    <h3>Why not just ask a chatbot?</h3>
+    <p>A language model on its own answers from memory and can invent quotations, dates and newspaper names. Here,
+      the evidence is always retrieved first and shown verbatim, and the optional written answer is instructed to
+      use only those numbered passages, cite every claim, report what papers <i>said</i> rather than what
+      happened, and point out disagreement between sources. You can always check the claim against the quote and
+      the quote against the scan.</p>
+
+    <h3>Retrieval details</h3>
+    <ul>
+      <li>Tokenization: lowercase, Latin accents and long s folded, stopwords removed, plural-only stemming
+        (Harman's S-stemmer) so names are not mangled. Indic scripts (Devanagari, Bengali, Gurmukhi, Gujarati,
+        Odia, Tamil, Telugu, Kannada, Malayalam) and Urdu are tokenized too, with their vowel signs kept, so
+        Hindi passages in the Gazette of India can be searched in Hindi. OCR-misreading expansion applies to
+        Latin-script words only.</li>
+      <li>Ranking: BM25 (k1 = 1.2, b = 0.75), boosted for passages that match more of the question's words, times
+        a quality prior of 0.6 + 0.4 × quality.</li>
+      <li>Diversity: at most two passages per page and four per newspaper in the top results.</li>
+      <li>Optional dense retrieval (Python only): a small sentence-embedding model fused with BM25 by reciprocal-rank
+        fusion, for paraphrased questions.</li>
+      <li>The browser and Python implementations are kept identical; the Python tests pin the shared behaviour.</li>
+    </ul>
+
+    <h3 id="reading">Reading historical newspapers critically</h3>
+    <ul>
+      <li><b>First reports are provisional.</b> Casualty counts, names and causes changed daily. Follow a story
+        across dates before drawing conclusions. The Titanic, Wright brothers and armistice stories were all
+        famously misreported at first.</li>
+      <li><b>Wire services and reprints.</b> Small papers often printed the same Associated Press or United Press
+        story word for word, sometimes with local cuts. Ten papers agreeing may be one source repeated.</li>
+      <li><b>Datelines vs. publication dates.</b> A story dated "New York, April 15" may appear in a weekly printed
+        days later. The date shown here is the issue date.</li>
+      <li><b>Partisanship and audience.</b> Nineteenth-century papers were openly tied to parties, and most were
+        written by and for white, middle-class, male readers. Notice whose voices are missing.</li>
+      <li><b>Offensive language.</b> Period coverage uses racist and demeaning terms. They are left as printed for
+        accuracy.</li>
+      <li><b>Selection bias in digitization.</b> What was microfilmed, survived and was chosen for digitization
+        is not a random sample of what was printed. Absence in this archive is not evidence of absence.</li>
+      <li><b>Advertising and boilerplate.</b> Patent-medicine ads, serialized fiction and syndicated filler share
+        the page with news, and OCR often runs columns together.</li>
+    </ul>
+
+    <h3 id="run">Running it yourself</h3>
+    <p>The Python toolkit harvests sources, OCRs your own scans, rebuilds this site's data and answers questions
+      from the command line, optionally writing summaries with Claude.</p>
+<pre>git clone https://github.com/ERo2203/Time-Capsule-A-News-Archive
+cd Time-Capsule-A-News-Archive
+pip install -e .
+
+timecapsule ask "How did papers report the Carpathia's arrival?" --collection titanic
+timecapsule harvest --only titanic --loc-pages 30     # pull more pages
+timecapsule ocr ~/scans/my-paper --collection my-town  # needs: pip install -e ".[ocr]"
+timecapsule build                                      # re-chunk and export site/data
+timecapsule ask "..." --claude                         # needs: pip install -e ".[llm]" and an API key</pre>
+    <p>To add an event, append an entry to <code>corpus/collections.json</code> with a date range, a Chronicling
+      America query, a few terms the Internet Archive issues must mention, and a context note. Then run
+      <code>harvest</code> and <code>build</code>.</p>
+
+    <h3>Limitations</h3>
+    <ul>
+      <li>The archive is a curated sample of a few hundred pages and issues, not a complete record. For exhaustive
+        work, search the source archives directly.</li>
+      <li>Internet Archive passages can be cited only to the issue, not the page.</li>
+      <li>To keep the website fast, it includes Internet Archive passages only near mentions of each event, and leaves out passages with very poor OCR. The Python toolkit searches the full text.</li>
+      <li>The quality score is a heuristic for ranking and warnings, not a measured character accuracy.</li>
+      <li>The extractive brief picks sentences by word overlap; it can miss an answer phrased differently.</li>
+    </ul>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
+  </div>
+</footer>
+</body>
+</html>

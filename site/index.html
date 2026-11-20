@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Time Capsule</title>
+<meta name="description" content="Search OCR'd historical newspapers and get answers quoted and cited to the original scans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238c1c13'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='20' font-weight='700' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="top"><span>An open research archive</span><button class="theme-btn" type="button" aria-label="Toggle dark mode">Light / dark</button></div>
+    <h1><a href="index.html">The Time Capsule</a></h1>
+    <p class="tag">A reading room for historical newspapers: search OCR'd front pages, with every answer cited to the scan</p>
+    <nav class="main" aria-label="Main">
+      <a href="index.html" aria-current="page">Ask the archive</a>
+      <a href="collections.html">Collections</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method &amp; reading guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <section class="ask" aria-labelledby="ask-h">
+    <h2 id="ask-h" class="sr">Ask the archive</h2>
+    <form id="ask-form" role="search">
+      <label class="sr" for="q">Your research question</label>
+      <input id="q" type="search" placeholder="e.g. How did papers first report the Titanic survivors?" autocomplete="off" required>
+      <button id="ask-btn" class="primary" type="submit" disabled>Search</button>
+    </form>
+    <div class="filters">
+      <label>Collection <select id="f-col"><option value="">All collections</option></select></label>
+      <label>From <input id="f-from" type="date" min="1850-01-01" max="1930-12-31"></label>
+      <label>To <input id="f-to" type="date" min="1850-01-01" max="1930-12-31"></label>
+      <label>Source <select id="f-src"><option value="">All sources</option><option value="loc">Chronicling America</option><option value="ia">Internet Archive</option><option value="headline">Indian news headlines</option><option value="gazette">Gazette of India</option></select></label>
+    </div>
+    <div class="loader" id="loader"><b></b></div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div class="chips" id="examples" aria-label="Example questions"></div>
+  </section>
+
+  <div id="results" aria-live="polite">
+    <section class="layout">
+      <div>
+        <div class="kicker">How it works</div>
+        <h2 style="margin-top:4px">Ask a question, get the newspapers' own words</h2>
+        <p class="lede">The Time Capsule is a lightweight retrieval system (the "R" in RAG) over OCR text from
+          historical newspapers. Ask a question and it finds the passages that answer it, quotes the most relevant
+          sentence from each, orders them in time, and links every quote back to the scanned page, down to the
+          printed column.</p>
+        <p>It is built for research: it never writes text the newspapers did not print, it shows how clean the OCR
+          is, it tolerates OCR misspellings, and it spreads results across newspapers so one large daily cannot
+          drown out the rest. Its <a href="collections.html#india-desk">India desk</a> brings in the Indian press
+          and the Gazette of India from this project's own archive. <span id="totals" class="muted"></span>.</p>
+        <p><a href="method.html">How the pipeline works</a> · <a href="sources.html">Where the pages come from</a> ·
+          <a href="collections.html">Browse the collections</a></p>
+      </div>
+      <aside><div class="box"><h3>Search tips</h3><ul>
+        <li>Use period vocabulary: "wireless", "the grippe", "aeroplane".</li>
+        <li>Names and places work best: "Carpathia", "Johnstown".</li>
+        <li>Narrow by date to follow a story day by day.</li>
+        <li>The India desk is searchable in English and Hindi (the Gazette is bilingual).</li>
+        <li>Likely OCR misreadings of your words are matched automatically.</li>
+      </ul></div></aside>
+    </section>
+  </div>
+</main>
+<script type="module" src="assets/app.js"></script>
+<footer>
+  <div class="wrap">
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
+  </div>
+</footer>
+</body>
+</html>

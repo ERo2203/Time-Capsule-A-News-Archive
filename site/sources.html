@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources · The Time Capsule</title>
+<meta name="description" content="Where the newspaper pages and OCR in The Time Capsule come from, and how to cite them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238c1c13'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='20' font-weight='700' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="top"><span>An open research archive</span><button class="theme-btn" type="button" aria-label="Toggle dark mode">Light / dark</button></div>
+    <h1><a href="index.html">The Time Capsule</a></h1>
+    <p class="tag">A reading room for historical newspapers: search OCR'd front pages, with every answer cited to the scan</p>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Ask the archive</a>
+      <a href="collections.html">Collections</a>
+      <a href="sources.html" aria-current="page">Sources</a>
+      <a href="method.html">Method &amp; reading guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="narrow">
+    <div class="kicker">Sources &amp; provenance</div>
+    <h2 style="margin-top:4px">Where every page comes from</h2>
+    <p class="lede">The historical collections are built only from openly published digitizations of newspapers
+      printed before 1931, which are in the public domain in the United States. The India desk adds material
+      from this project's own archive, described below. Each passage keeps its newspaper title, place,
+      date, page or image number, the OCR engine that read it, and a link to the original scan.</p>
+
+    <h3>Chronicling America <span class="muted">· Library of Congress</span></h3>
+    <p>A database of historic American newspapers from 1756 to 1963, produced by the
+      <a href="https://www.neh.gov/divisions/preservation/national-digital-newspaper-program">National Digital Newspaper Program</a>,
+      a partnership between the National Endowment for the Humanities and the Library of Congress. State partners
+      choose and digitize titles, mostly from microfilm, and deliver page images with OCR in
+      <a href="https://www.loc.gov/standards/alto/">ALTO XML</a>, which records the position of every word and the OCR
+      engine's confidence in it.</p>
+    <ul>
+      <li><b>How we use it:</b> pages are found with the <a href="https://www.loc.gov/apis/json-and-yaml/">loc.gov JSON API</a>; OCR is read from each page's ALTO file; images come from the Library's <a href="https://iiif.io/">IIIF</a> image service, which is how "Show scan" crops the exact printed region of a passage.</li>
+      <li><b>Citations:</b> page-level, with the image (sequence) number and a link to the Library's page viewer.</li>
+      <li><b>Rights:</b> the Library of Congress is not aware of copyright restrictions on Chronicling America pages; see its <a href="https://www.loc.gov/collections/chronicling-america/about-this-collection/rights-and-access/">rights statement</a>.</li>
+      <li><b>Collection home:</b> <a href="https://www.loc.gov/collections/chronicling-america/">loc.gov/collections/chronicling-america</a></li>
+    </ul>
+
+    <h3>Newspapers at the Internet Archive</h3>
+    <p>The <a href="https://archive.org/details/newspapers">Internet Archive's newspaper collections</a> hold more than
+      a million digitized issues from around the world, contributed by libraries, publishers and volunteers. The
+      Archive runs its own OCR (based on Tesseract) on every issue.</p>
+    <ul>
+      <li><b>How we use it:</b> issues in each collection's date range are found with the <a href="https://archive.org/advancedsearch.php">Archive's search API</a>; we keep issues whose OCR mentions the event several times and read their full text. The website holds the passages around those mentions; the full issues are in the downloadable corpus.</li>
+      <li><b>Citations:</b> issue-level (the full-text file has no page breaks). Links open the issue with the Archive's search-inside set to your query, so you can jump to the page.</li>
+      <li><b>Rights:</b> issues here were published before 1931; check each item's page for any terms set by its contributor.</li>
+    </ul>
+
+    <h3 id="india">India desk: from this project's archive</h3>
+    <p>The first version of this project gathered two Indian sources. Both are now searchable alongside the
+      historical newspapers.</p>
+    <ul>
+      <li><b>Indian news headlines, August 2020.</b> 7,648 headlines from 87 Indian outlets, among
+        them The Times of India, The Indian Express, NDTV, News18, Mint, Moneycontrol, The Hindu, Deccan Herald,
+        The Tribune, Scroll.in, The Wire and ThePrint. They were selected from a ~108,000-headline dataset by
+        outlet. Each record keeps the headline, outlet, date, the topic the aggregator assigned, and a link to
+        the article. <b>Only headlines and links are stored</b>; article text stays with the publishers, who hold
+        its copyright. Citations name the outlet and link to the article. Some links may have moved since 2020.</li>
+      <li><b>The Gazette of India, 30 September 2000, Part III, Section 4.</b> The Government of India's official
+        journal, in Hindi and English. This is the issue the original scraper targeted. We read it from the
+        <a href="https://archive.org/details/in.gazette.central.w.2000-09-30.153">Internet Archive copy</a> in the
+        <a href="https://archive.org/details/gazetteofindia">gazetteofindia collection</a>, digitized by
+        Public.Resource.Org with OCR (Google Cloud Vision) covering both scripts. Search works in English and
+        Hindi. Citations are to the issue.</li>
+    </ul>
+    <p>Other open sources for Indian newspapers and gazettes: the
+      <a href="https://archive.org/details/gazetteofindia">Gazette of India collection</a> (hundreds of thousands
+      of issues), the <a href="https://egazette.gov.in/">e-Gazette of India</a>, the
+      <a href="https://eap.bl.uk/">British Library Endangered Archives Programme</a> (including Indian periodicals),
+      and the <a href="https://www.indianculture.gov.in/">Indian Culture portal</a> of the Ministry of Culture.</p>
+
+    <h3>Your own scans</h3>
+    <p>The Python toolkit can OCR a folder of newspaper page images with <a href="https://github.com/tesseract-ocr/tesseract">Tesseract</a>,
+      keeping each paragraph's position and confidence, and add them to the archive. See <a href="method.html#run">running it yourself</a>.</p>
+
+    <h3>Historical context notes</h3>
+    <p>The overview and reading notes for each collection were written for this project from standard historical
+      accounts. They give background for judging the sources and are always shown apart from quoted evidence.
+      Corrections are welcome as GitHub issues.</p>
+
+    <h3>Other open newspaper archives to explore</h3>
+    <ul>
+      <li><a href="https://trove.nla.gov.au/">Trove</a>: National Library of Australia, Australian newspapers 1803 onward, with crowd-corrected OCR and an API.</li>
+      <li><a href="https://paperspast.natlib.govt.nz/">Papers Past</a>: National Library of New Zealand, New Zealand and Pacific newspapers.</li>
+      <li><a href="https://www.delpher.nl/">Delpher</a>: Dutch newspapers, books and periodicals from the KB, National Library of the Netherlands.</li>
+      <li><a href="https://www.europeana.eu/en/collections/topic/18-newspapers">Europeana Newspapers</a>: newspapers from European national libraries, many with ALTO full text.</li>
+      <li><a href="https://gallica.bnf.fr/">Gallica</a> and <a href="https://www.retronews.fr/">RetroNews</a>: French press from the Bibliothèque nationale de France.</li>
+      <li><a href="https://cdnc.ucr.edu/">California Digital Newspaper Collection</a>: California newspapers, 1846 to the present.</li>
+      <li><a href="https://huggingface.co/datasets/dell-research-harvard/AmericanStories">American Stories</a>: article-level OCR of Chronicling America scans, released by Dell et al. (2023) for research.</li>
+    </ul>
+
+    <h3>Every newspaper in this archive</h3>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Newspaper or outlet</th><th>Place</th><th>Source</th><th>Collections</th></tr></thead>
+    <tbody id="papers"><tr><td colspan="4">Loading ...</td></tr></tbody>
+  </table></div>
+  <p class="small muted sans" id="built"></p>
+</main>
+<script type="module">
+import { esc, loadManifest, SOURCE_LABEL } from "./assets/common.js";
+const m = await loadManifest();
+const rows = new Map();
+for (const c of m.collections) for (const t of c.titles) {
+  const [n, p, src] = t.split("|");
+  const r = rows.get(t) || { n, p, src, cols: [] };
+  r.cols.push(`<a href="collections.html#${c.id}">${esc(c.title)}</a>`);
+  rows.set(t, r);
+}
+document.getElementById("papers").innerHTML = [...rows.values()].sort((a, b) => a.n.localeCompare(b.n))
+  .map((r) => `<tr><td>${esc(r.n)}</td><td>${esc(r.p)}</td><td>${esc(SOURCE_LABEL[r.src])}</td><td>${r.cols.join("<br>")}</td></tr>`).join("");
+document.getElementById("built").textContent = `${rows.size} titles. Archive built ${m.built}.`;
+</script>
+<footer>
+  <div class="wrap">
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
+  </div>
+</footer>
+</body>
+</html>

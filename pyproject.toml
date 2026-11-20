@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "timecapsule"
+version = "0.2.0"
+description = "Lightweight, citation-first RAG over OCR'd historical newspapers (Chronicling America, Internet Archive, your own scans)."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+# Run Tesseract OCR on your own newspaper scans (also needs the tesseract binary).
+ocr = ["pytesseract>=0.3.10", "Pillow>=10"]
+# Add dense (embedding) retrieval on top of BM25, fused with reciprocal-rank fusion.
+dense = ["sentence-transformers>=3.0", "numpy>=1.26"]
+# Generate written answers with Claude, grounded in retrieved passages.
+llm = ["anthropic>=0.70"]
+# Serve the archive as a small local web API.
+serve = ["flask>=3.0"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+timecapsule = "timecapsule.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["timecapsule*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

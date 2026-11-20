@@ -1,0 +1,948 @@
+{
+ "built": "2026-11-20",
+ "min_quality": 0.5,
+ "sources": {
+  "loc": {
+   "name": "Chronicling America",
+   "publisher": "Library of Congress & National Endowment for the Humanities (NDNP)",
+   "url": "https://www.loc.gov/collections/chronicling-america/"
+  },
+  "ia": {
+   "name": "Internet Archive Newspapers",
+   "publisher": "Internet Archive",
+   "url": "https://archive.org/details/newspapers"
+  },
+  "headline": {
+   "name": "Indian news headlines (project archive)",
+   "publisher": "Headlines and links from Indian outlets, collected August 2020",
+   "url": ""
+  },
+  "gazette": {
+   "name": "The Gazette of India",
+   "publisher": "Government of India; digitized by Public.Resource.Org and the Internet Archive",
+   "url": "https://archive.org/details/gazetteofindia"
+  },
+  "local": {
+   "name": "Local scans",
+   "publisher": "Contributed scans, OCR'd with Tesseract",
+   "url": ""
+  }
+ },
+ "totals": {
+  "pages": 7840,
+  "passages": 18354,
+  "newspapers": 214,
+  "places": 115,
+  "scanned": 192,
+  "scanned_titles": 127,
+  "headlines": 7648,
+  "outlets": 87
+ },
+ "collections": [
+  {
+   "id": "lincoln-assassination",
+   "title": "The Assassination of Abraham Lincoln",
+   "start": "1865-04-15",
+   "end": "1865-04-30",
+   "loc_query": "lincoln assassination",
+   "ia_terms": [
+    "Lincoln",
+    "assassin"
+   ],
+   "context": "President Abraham Lincoln was shot by the actor John Wilkes Booth at Ford's Theatre in Washington on the night of April 14, 1865, five days after Lee's surrender at Appomattox, and died the next morning. The same night Lewis Powell attacked Secretary of State William Seward at his home. Booth was cornered and killed at a Virginia farm on April 26. News moved by telegraph, so many papers printed bulletins in the order they arrived, including rumours later corrected.",
+   "reading_notes": "Watch how certainty changes from bulletin to bulletin, and how Northern and Southern-leaning papers frame the conspiracy. Spellings of names (e.g. 'Payne' for Powell, who used that alias) differ from modern usage.",
+   "questions": [
+    "How did papers first report the attack on Seward?",
+    "When was Booth's death reported, and how?",
+    "How was the funeral train described?"
+   ],
+   "file": "shard-lincoln-assassination.json",
+   "stats": {
+    "pages": 16,
+    "passages": 896,
+    "newspapers": 14,
+    "places": [
+     "Appleton, Wisconsin",
+     "Bedford, Pa.",
+     "Cleveland [Ohio]",
+     "Irasburgh, Vt.",
+     "Janesville, Wisconsin",
+     "Rutland, Vt.",
+     "Saint Paul, Minn. Territory",
+     "Smyrna, Del.",
+     "Springfield, Mass.",
+     "St. Johnsbury, Vt.",
+     "Wheeling, W. Va.",
+     "Worcester [Mass.]"
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1865-04-15",
+     "1865-04-28"
+    ]
+   },
+   "titles": [
+    "Appleton Post Crescent|Appleton, Wisconsin|ia",
+    "Bedford inquirer|Bedford, Pa.|loc",
+    "Cleveland morning leader|Cleveland [Ohio]|loc",
+    "Janesville Daily Gazette|Janesville, Wisconsin|ia",
+    "Louisville daily union press||ia",
+    "National Anti-Slavery Standard||ia",
+    "Orleans independent standard|Irasburgh, Vt.|loc",
+    "Rutland weekly herald|Rutland, Vt.|loc",
+    "Smyrna times|Smyrna, Del.|loc",
+    "Springfield weekly Republican|Springfield, Mass.|loc",
+    "The Caledonian|St. Johnsbury, Vt.|loc",
+    "The Wheeling daily register|Wheeling, W. Va.|loc",
+    "The weekly pioneer and Democrat|Saint Paul, Minn. Territory|loc",
+    "Worcester daily spy|Worcester [Mass.]|loc"
+   ]
+  },
+  {
+   "id": "great-chicago-fire",
+   "title": "The Great Chicago Fire",
+   "start": "1871-10-09",
+   "end": "1871-10-31",
+   "loc_query": "chicago fire",
+   "ia_terms": [
+    "Chicago",
+    "fire"
+   ],
+   "context": "Fire broke out on Chicago's West Side on the night of October 8, 1871, and burned until October 10, destroying about 3.3 square miles of the city, including the business district. Roughly 300 people died and around 100,000 were left homeless. Relief poured in from other cities, and the story of Mrs. O'Leary's cow, never proven, spread through the press.",
+   "reading_notes": "Early casualty and loss figures were guesses and vary widely between papers. The O'Leary cow story is a useful case study in how a press rumour becomes 'fact'.",
+   "questions": [
+    "How did papers explain the cause of the fire?",
+    "What relief efforts did other cities organize?",
+    "How did estimates of the losses change over the month?"
+   ],
+   "file": "shard-great-chicago-fire.json",
+   "stats": {
+    "pages": 16,
+    "passages": 1298,
+    "newspapers": 12,
+    "places": [
+     "Augusta, Me.",
+     "Bellevue, Bossier Parish, La.",
+     "Concord, N.H.",
+     "Donaldsonville, La.",
+     "New Orleans, La",
+     "New York, New York",
+     "Opelousas, La.",
+     "Portland, Me.",
+     "Portland, Oregon",
+     "Portsmouth, N.H."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1871-10-09",
+     "1871-10-28"
+    ]
+   },
+   "titles": [
+    "Daily Kennebec journal|Augusta, Me.|loc",
+    "Hong Kong Daily Press||ia",
+    "Independent statesman|Concord, N.H.|loc",
+    "Morning Oregonian|Portland, Oregon|ia",
+    "New Orleans Republican|New Orleans, La|loc",
+    "New York Herald|New York, New York|ia",
+    "The Bossier banner|Bellevue, Bossier Parish, La.|loc",
+    "The Courier-Journal||ia",
+    "The Donaldsonville chief|Donaldsonville, La.|loc",
+    "The New Hampshire gazette|Portsmouth, N.H.|loc",
+    "The Opelousas journal|Opelousas, La.|loc",
+    "The Portland daily press|Portland, Me.|loc"
+   ]
+  },
+  {
+   "id": "johnstown-flood",
+   "title": "The Johnstown Flood",
+   "start": "1889-06-01",
+   "end": "1889-06-20",
+   "loc_query": "johnstown flood",
+   "ia_terms": [
+    "Johnstown"
+   ],
+   "context": "On May 31, 1889, the South Fork Dam on the Little Conemaugh River in Pennsylvania failed after days of heavy rain, sending a wall of water down the valley onto Johnstown. More than 2,200 people died. The dam held back a lake owned by the South Fork Fishing and Hunting Club, whose members included wealthy Pittsburgh industrialists, and the press debated their responsibility. Clara Barton led one of the American Red Cross's first major relief operations there.",
+   "reading_notes": "Death tolls in the first week range from hundreds to many thousands. Compare how papers treat the club's liability and the relief effort.",
+   "questions": [
+    "Who did papers blame for the dam failure?",
+    "How was the Red Cross relief work reported?",
+    "How did the reported death toll change?"
+   ],
+   "file": "shard-johnstown-flood.json",
+   "stats": {
+    "pages": 16,
+    "passages": 943,
+    "newspapers": 14,
+    "places": [
+     "Butte, Mont.",
+     "Concord, N.H.",
+     "Great Falls, Mont.",
+     "Helena, Mont.",
+     "Jacksonville, Alabama",
+     "Kingston, New York",
+     "McMinnville, Tenn.",
+     "New York, N.Y.",
+     "Pawtucket, R.I.",
+     "Portland, Me.",
+     "Wichita, Kan."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1889-06-01",
+     "1889-06-15"
+    ]
+   },
+   "titles": [
+    "Butte semi-weekly miner|Butte, Mont.|loc",
+    "Evening bulletin (Maysville, Ky.: 1887)||ia",
+    "Evening tribune|Pawtucket, R.I.|loc",
+    "Helena weekly herald|Helena, Mont.|loc",
+    "Jacksonville Republican|Jacksonville, Alabama|ia",
+    "Kingston Daily Freeman|Kingston, New York|ia",
+    "People and Patriot|Concord, N.H.|loc",
+    "Southern standard|McMinnville, Tenn.|loc",
+    "The Chicago Tribune||ia",
+    "The Great Falls leader|Great Falls, Mont.|loc",
+    "The Helena independent|Helena, Mont.|loc",
+    "The Portland daily press|Portland, Me.|loc",
+    "The evening world|New York, N.Y.|loc",
+    "Wichita eagle|Wichita, Kan.|loc"
+   ]
+  },
+  {
+   "id": "wright-brothers",
+   "title": "The Wright Brothers' First Flights",
+   "start": "1903-12-17",
+   "end": "1904-01-31",
+   "loc_query": "wright flying machine kitty hawk",
+   "ia_terms": [
+    "flying machine",
+    "Wright"
+   ],
+   "context": "On December 17, 1903, Orville and Wilbur Wright made the first sustained, controlled flights of a powered heavier-than-air airplane at Kill Devil Hills near Kitty Hawk, North Carolina. They flew four times that day; the longest flight, by Wilbur, covered 852 feet in 59 seconds. Press coverage was thin and often wrong: an embellished wire story spread from Norfolk, and many editors doubted the claims for years.",
+   "reading_notes": "This collection is a lesson in how a world-changing event can be under-reported or misreported. Compare reported distances and details with the Wrights' own account.",
+   "questions": [
+    "How far did newspapers say the machine flew?",
+    "Which papers were sceptical?",
+    "How did the Wrights' statement correct the press?"
+   ],
+   "file": "shard-wright-brothers.json",
+   "stats": {
+    "pages": 15,
+    "passages": 637,
+    "newspapers": 14,
+    "places": [
+     "Augusta, Me.",
+     "Bristol, Pennsylvania",
+     "Cloverport, Ky.",
+     "Colorado Springs, Colorado",
+     "Fort Benton, Mont.",
+     "Laurens, S.C.",
+     "Lewistown, Mont.",
+     "Newberry S.C.",
+     "Pickens, S.C.",
+     "Portland, Me.",
+     "Sumter, S.C.",
+     "Yorkville, S.C."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 11
+    },
+    "dates": [
+     "1903-12-17",
+     "1904-01-13"
+    ]
+   },
+   "titles": [
+    "Bristol Bucks County Gazette|Bristol, Pennsylvania|ia",
+    "Colorado Springs Weekly Gazette|Colorado Springs, Colorado|ia",
+    "Daily Kennebec journal|Augusta, Me.|loc",
+    "Fergus County argus|Lewistown, Mont.|loc",
+    "The Atlanta Constitution||ia",
+    "The Breckenridge news|Cloverport, Ky.|loc",
+    "The Laurens advertiser|Laurens, S.C.|loc",
+    "The Morning Star||ia",
+    "The Pickens sentinel-journal|Pickens, S.C.|loc",
+    "The Portland daily press|Portland, Me.|loc",
+    "The herald and news|Newberry S.C.|loc",
+    "The river press|Fort Benton, Mont.|loc",
+    "The watchman and southron|Sumter, S.C.|loc",
+    "Yorkville enquirer|Yorkville, S.C.|loc"
+   ]
+  },
+  {
+   "id": "san-francisco-earthquake",
+   "title": "The 1906 San Francisco Earthquake and Fire",
+   "start": "1906-04-18",
+   "end": "1906-05-05",
+   "loc_query": "san francisco earthquake",
+   "ia_terms": [
+    "San Francisco",
+    "earthquake"
+   ],
+   "context": "At 5:12 a.m. on April 18, 1906, a major earthquake on the San Andreas Fault struck San Francisco. Fires that followed burned for several days and destroyed most of the city. Official death counts at the time were in the hundreds; later research puts the toll at roughly 3,000 or more. More than half of the city's roughly 400,000 residents were left homeless.",
+   "reading_notes": "Early reports undercounted deaths, partly to protect the city's reputation and partly because of chaos. Note what the press says about martial law, looting and the army's use of dynamite.",
+   "questions": [
+    "How were the fires fought?",
+    "What did papers report about looting and martial law?",
+    "How did other cities send aid?"
+   ],
+   "file": "shard-san-francisco-earthquake.json",
+   "stats": {
+    "pages": 16,
+    "passages": 801,
+    "newspapers": 13,
+    "places": [
+     "Ada, Oklahoma",
+     "Beatrice, Neb.",
+     "Brandon, Miss.",
+     "Coshocton, Ohio",
+     "Lewistown, Mont.",
+     "Minneapolis, Minn.",
+     "New York [N.Y.]",
+     "Newark, Ohio",
+     "Paducah, Ky.",
+     "Stevensville, Mont.",
+     "Washington [D.C.]",
+     "Washington, D.C."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1906-04-18",
+     "1906-05-04"
+    ]
+   },
+   "titles": [
+    "Ada Evening News|Ada, Oklahoma|ia",
+    "Coshocton Daily Age|Coshocton, Ohio|ia",
+    "Evening star|Washington, D.C.|loc",
+    "Fergus County argus|Lewistown, Mont.|loc",
+    "Hong Kong Telegraph||ia",
+    "New-York tribune|New York [N.Y.]|loc",
+    "Newark Advocate|Newark, Ohio|ia",
+    "The Beatrice daily express|Beatrice, Neb.|loc",
+    "The Brandon news|Brandon, Miss.|loc",
+    "The Minneapolis journal|Minneapolis, Minn.|loc",
+    "The Paducah sun|Paducah, Ky.|loc",
+    "The Washington times|Washington [D.C.]|loc",
+    "The Western news|Stevensville, Mont.|loc"
+   ]
+  },
+  {
+   "id": "titanic",
+   "title": "The Sinking of the Titanic",
+   "start": "1912-04-15",
+   "end": "1912-04-30",
+   "loc_query": "titanic iceberg",
+   "ia_terms": [
+    "Titanic"
+   ],
+   "context": "The White Star liner Titanic struck an iceberg at about 11:40 p.m. on April 14, 1912, on her maiden voyage, and sank about 2 hours 40 minutes later. Around 1,500 people died; about 700 survivors were picked up by the Cunard liner Carpathia, which reached New York on the night of April 18. The first wireless reports were confused, and some papers on April 15 reported that all passengers were safe and the ship was being towed to Halifax.",
+   "reading_notes": "Compare the early 'all saved' reports with those from April 16 onward. Survivor lists were printed and reprinted with many spelling errors. US Senate hearings began on April 19.",
+   "questions": [
+    "When did papers first report the loss of life?",
+    "What did survivors say about the lifeboats?",
+    "How was the Carpathia's arrival reported?"
+   ],
+   "file": "shard-titanic.json",
+   "stats": {
+    "pages": 16,
+    "passages": 564,
+    "newspapers": 14,
+    "places": [
+     "Augusta, Me.",
+     "Birmingham, Ala.",
+     "Culbertson, Mont.",
+     "Dixon, Illinois",
+     "Fort Benton, Mont.",
+     "Grenada, Miss.",
+     "Leakesville, Miss.",
+     "Mobridge, Walworth Co., S.D.",
+     "New York [N.Y.]",
+     "Sedalia, Missouri",
+     "Washington, D.C.",
+     "Wibaux, Mont."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1912-04-15",
+     "1912-04-28"
+    ]
+   },
+   "titles": [
+    "Boston American [||ia",
+    "Daily Kennebec journal|Augusta, Me.|loc",
+    "Dixon Evening Telegraph|Dixon, Illinois|ia",
+    "Evening star|Washington, D.C.|loc",
+    "Greene County herald|Leakesville, Miss.|loc",
+    "New-York tribune|New York [N.Y.]|loc",
+    "Sedalia Democrat|Sedalia, Missouri|ia",
+    "The Birmingham age-herald|Birmingham, Ala.|loc",
+    "The Chicago Daily Tribune||ia",
+    "The Grenada sentinel|Grenada, Miss.|loc",
+    "The Mobridge news|Mobridge, Walworth Co., S.D.|loc",
+    "The Wibaux pioneer|Wibaux, Mont.|loc",
+    "The river press|Fort Benton, Mont.|loc",
+    "The searchlight|Culbertson, Mont.|loc"
+   ]
+  },
+  {
+   "id": "lusitania",
+   "title": "The Sinking of the Lusitania",
+   "start": "1915-05-07",
+   "end": "1915-05-25",
+   "loc_query": "lusitania torpedoed",
+   "ia_terms": [
+    "Lusitania"
+   ],
+   "context": "On May 7, 1915, the German submarine U-20 torpedoed the Cunard liner Lusitania off the south coast of Ireland. She sank in about 18 minutes, and 1,198 people died, among them 128 Americans. The sinking turned much American opinion against Germany, though the United States did not enter the war until April 1917. Germany argued the ship carried munitions and had published warnings to travellers.",
+   "reading_notes": "Read for editorial positions on neutrality and for the German embassy's newspaper warning, which some papers reprinted.",
+   "questions": [
+    "How did American papers react to the sinking?",
+    "What was said about the German warning notice?",
+    "How did President Wilson respond?"
+   ],
+   "file": "shard-lusitania.json",
+   "stats": {
+    "pages": 16,
+    "passages": 605,
+    "newspapers": 15,
+    "places": [
+     "Augusta, Me.",
+     "Birmingham, Ala.",
+     "Brandon, Miss.",
+     "Columbia, La.",
+     "Cordova, Alaska",
+     "Kingston, New York",
+     "Miller, S.D.",
+     "New York [N.Y.]",
+     "Pierre, S.D.",
+     "Port Gibson, Miss.",
+     "Washington Court House, Ohio",
+     "Washington [D.C.]",
+     "Yale, St. Clair County, Mich."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1915-05-07",
+     "1915-05-20"
+    ]
+   },
+   "titles": [
+    "Boston American [||ia",
+    "Daily Kennebec journal|Augusta, Me.|loc",
+    "Kingston Daily Freeman|Kingston, New York|ia",
+    "Pierre weekly free press|Pierre, S.D.|loc",
+    "St. Louis Post-Dispatch||ia",
+    "The Birmingham age-herald|Birmingham, Ala.|loc",
+    "The Brandon news|Brandon, Miss.|loc",
+    "The Caldwell watchman|Columbia, La.|loc",
+    "The Cordova daily times|Cordova, Alaska|loc",
+    "The Miller press|Miller, S.D.|loc",
+    "The Port Gibson reveille|Port Gibson, Miss.|loc",
+    "The Washington times|Washington [D.C.]|loc",
+    "The Yale expositor|Yale, St. Clair County, Mich.|loc",
+    "The sun|New York [N.Y.]|loc",
+    "Washington Court House Daily Herald|Washington Court House, Ohio|ia"
+   ]
+  },
+  {
+   "id": "influenza-1918",
+   "title": "The 1918 Influenza Pandemic",
+   "start": "1918-10-01",
+   "end": "1918-10-31",
+   "loc_query": "influenza epidemic",
+   "ia_terms": [
+    "influenza"
+   ],
+   "context": "The deadliest wave of the 1918-1919 influenza pandemic hit the United States in autumn 1918, peaking in October. Cities closed schools, churches, theaters and saloons, banned public gatherings and urged masks, with very different timing and strictness. Around 675,000 Americans died over the whole pandemic, and estimates of deaths worldwide run to about 50 million. Wartime censorship shaped reporting in many countries.",
+   "reading_notes": "Look for closure orders, advertisements for remedies, and how local officials played down or played up the danger. 'Spanish influenza' was the common name; Spain was neutral and its press reported the disease openly.",
+   "questions": [
+    "What public-health orders did cities issue?",
+    "Which remedies were advertised?",
+    "How did officials describe the danger?"
+   ],
+   "file": "shard-influenza-1918.json",
+   "stats": {
+    "pages": 16,
+    "passages": 643,
+    "newspapers": 13,
+    "places": [
+     "Albuquerque, N.M.",
+     "Bamberg, S.C.",
+     "Dillon, S.C.",
+     "Fargo, N.D.",
+     "Gettysburg, Pennsylvania",
+     "Glasgow, Mont.",
+     "Harrisburg, Pa.",
+     "Jacksonville, Illinois",
+     "Madison, S.D.",
+     "Maysville, Ky.",
+     "Newark, Ohio",
+     "Payne Field, West Point, Miss."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1918-10-01",
+     "1918-10-25"
+    ]
+   },
+   "titles": [
+    "Albuquerque morning journal|Albuquerque, N.M.|loc",
+    "Gettysburg Times|Gettysburg, Pennsylvania|ia",
+    "Harrisburg telegraph|Harrisburg, Pa.|loc",
+    "Jacksonville Daily Journal|Jacksonville, Illinois|ia",
+    "Newark Advocate|Newark, Ohio|ia",
+    "Payne Field zooms|Payne Field, West Point, Miss.|loc",
+    "The Bamberg herald|Bamberg, S.C.|loc",
+    "The Chicago Daily Tribune||ia",
+    "The Dillon herald|Dillon, S.C.|loc",
+    "The Fargo forum and daily republican|Fargo, N.D.|loc",
+    "The Glasgow courier|Glasgow, Mont.|loc",
+    "The Madison daily leader|Madison, S.D.|loc",
+    "The public ledger|Maysville, Ky.|loc"
+   ]
+  },
+  {
+   "id": "armistice-1918",
+   "title": "The Armistice of November 1918",
+   "start": "1918-11-07",
+   "end": "1918-11-16",
+   "loc_query": "armistice signed",
+   "ia_terms": [
+    "armistice"
+   ],
+   "context": "The armistice ending fighting on the Western Front was signed early on November 11, 1918, in a railway carriage in the forest of Compiègne, and took effect at 11 a.m. Paris time. Four days earlier, on November 7, a premature United Press report that an armistice had been signed set off celebrations across the United States before it was denied.",
+   "reading_notes": "Compare the 'false armistice' coverage of November 7-8 with the real news of November 11. Look at how the terms were summarized for readers.",
+   "questions": [
+    "How was the false armistice reported and then corrected?",
+    "What terms did papers say Germany accepted?",
+    "How were celebrations described?"
+   ],
+   "file": "shard-armistice-1918.json",
+   "stats": {
+    "pages": 16,
+    "passages": 496,
+    "newspapers": 15,
+    "places": [
+     "Aberdeen, Miss.",
+     "Augusta, Me.",
+     "Bamberg, S.C.",
+     "Bridgeport, Conn.",
+     "Bryan, Texas",
+     "Chickasha, Indian Territory [Okla.]",
+     "Covington, La.",
+     "Harrisburg, Pa.",
+     "Jacksonville, Illinois",
+     "Kingston, New York",
+     "New Iberia, La.",
+     "New York [N.Y.]",
+     "Tulsa, Indian Territory [Okla.]",
+     "Washington, D.C."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1918-11-07",
+     "1918-11-15"
+    ]
+   },
+   "titles": [
+    "Bryan Weekly Eagle|Bryan, Texas|ia",
+    "China Mail||ia",
+    "Daily Kennebec journal|Augusta, Me.|loc",
+    "Harrisburg telegraph|Harrisburg, Pa.|loc",
+    "Jacksonville Daily Journal|Jacksonville, Illinois|ia",
+    "Kingston Daily Freeman|Kingston, New York|ia",
+    "New Iberia enterprise and independent observer|New Iberia, La.|loc",
+    "New-York tribune|New York [N.Y.]|loc",
+    "St. Tammany farmer|Covington, La.|loc",
+    "The Aberdeen weekly|Aberdeen, Miss.|loc",
+    "The Bamberg herald|Bamberg, S.C.|loc",
+    "The Bridgeport times and evening farmer|Bridgeport, Conn.|loc",
+    "The Chickasha daily express|Chickasha, Indian Territory [Okla.]|loc",
+    "The Washington herald|Washington, D.C.|loc",
+    "Tulsa daily world|Tulsa, Indian Territory [Okla.]|loc"
+   ]
+  },
+  {
+   "id": "nineteenth-amendment",
+   "title": "Ratification of the 19th Amendment",
+   "start": "1920-08-18",
+   "end": "1920-08-31",
+   "loc_query": "suffrage amendment ratified tennessee",
+   "ia_terms": [
+    "suffrage"
+   ],
+   "context": "On August 18, 1920, Tennessee became the 36th state to ratify the 19th Amendment, giving it the three-quarters of states needed to bar denial of the vote on account of sex. The deciding vote in the Tennessee House came from 24-year-old Harry Burn, who changed his vote after a letter from his mother. Opponents tried to reverse the vote, but Secretary of State Bainbridge Colby certified the amendment on August 26, 1920.",
+   "reading_notes": "Many Black women, especially in the South, remained kept from voting by poll taxes, literacy tests and violence long after 1920. Watch for whose voices the coverage includes.",
+   "questions": [
+    "How was Harry Burn's vote reported?",
+    "What did opponents try after the vote?",
+    "When could women first vote in the 1920 election?"
+   ],
+   "file": "shard-nineteenth-amendment.json",
+   "stats": {
+    "pages": 16,
+    "passages": 615,
+    "newspapers": 15,
+    "places": [
+     "Broadus, Mont.",
+     "Dakota City, Neb.",
+     "Dixon, Illinois",
+     "Franklin, Parish of St. Mary, La.",
+     "Glenmora, La.",
+     "Janesville, Wisconsin",
+     "Lima, Ohio",
+     "New York [N.Y.]",
+     "Starkville, Miss.",
+     "Tonopah, Nev.",
+     "Vidalia, Concordia Parish, La.",
+     "Water Valley, Yalobusha Co., Miss.",
+     "Welsh, Calcasieu Parish, La.",
+     "Wolf Point, Mont."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1920-08-18",
+     "1920-08-28"
+    ]
+   },
+   "titles": [
+    "Dakota County herald|Dakota City, Neb.|loc",
+    "Dixon Evening Telegraph|Dixon, Illinois|ia",
+    "Janesville Daily Gazette|Janesville, Wisconsin|ia",
+    "Lima News|Lima, Ohio|ia",
+    "The Christian Science Monitor||ia",
+    "The Concordia sentinel|Vidalia, Concordia Parish, La.|loc",
+    "The North Mississippi herald|Water Valley, Yalobusha Co., Miss.|loc",
+    "The Powder River County examiner and the Broadus independent|Broadus, Mont.|loc",
+    "The Rice belt journal|Welsh, Calcasieu Parish, La.|loc",
+    "The St. Mary banner|Franklin, Parish of St. Mary, La.|loc",
+    "The Starkville news|Starkville, Miss.|loc",
+    "The Sun and the New York herald|New York [N.Y.]|loc",
+    "The Wolf Point herald|Wolf Point, Mont.|loc",
+    "The patriot|Glenmora, La.|loc",
+    "Tonopah daily bonanza|Tonopah, Nev.|loc"
+   ]
+  },
+  {
+   "id": "lindbergh-1927",
+   "title": "Lindbergh's Transatlantic Flight",
+   "start": "1927-05-20",
+   "end": "1927-06-15",
+   "loc_query": "lindbergh paris flight",
+   "ia_terms": [
+    "Lindbergh"
+   ],
+   "context": "Charles Lindbergh took off from Roosevelt Field, Long Island, on May 20, 1927, and landed at Le Bourget, near Paris, on the evening of May 21, about 33 and a half hours later. It was the first solo nonstop flight across the Atlantic, and it won the $25,000 Orteig Prize. His plane was the Spirit of St. Louis. He became an instant celebrity, and newspapers covered his return to the United States in June at enormous length.",
+   "reading_notes": "A study in mass-media celebrity. Compare factual flight reports with human-interest coverage of Lindbergh's mother and the crowds in Paris.",
+   "questions": [
+    "How was the landing in Paris described?",
+    "What did Lindbergh say about the flight?",
+    "How was his return welcomed?"
+   ],
+   "file": "shard-lindbergh-1927.json",
+   "stats": {
+    "pages": 16,
+    "passages": 853,
+    "newspapers": 13,
+    "places": [
+     "Brainerd, Minnesota",
+     "East Liverpool, Ohio",
+     "Indianapolis [Ind.]",
+     "New Britain, Conn.",
+     "Plentywood, Mont.",
+     "Smyrna, Del.",
+     "Sumter, S.C.",
+     "Washington [D.C.]",
+     "Washington, D.C.",
+     "Wolf Point, Mont.",
+     "Xenia, Ohio"
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1927-05-20",
+     "1927-06-03"
+    ]
+   },
+   "titles": [
+    "Boston American [||ia",
+    "Brainerd Daily Dispatch|Brainerd, Minnesota|ia",
+    "East Liverpool Review Tribune|East Liverpool, Ohio|ia",
+    "Evening star|Washington, D.C.|loc",
+    "New Britain herald|New Britain, Conn.|loc",
+    "Smyrna times|Smyrna, Del.|loc",
+    "The Indianapolis times|Indianapolis [Ind.]|loc",
+    "The Washington daily news|Washington, D.C.|loc",
+    "The Washington times|Washington [D.C.]|loc",
+    "The Wolf Point herald|Wolf Point, Mont.|loc",
+    "The producers news|Plentywood, Mont.|loc",
+    "The watchman and southron|Sumter, S.C.|loc",
+    "Xenia Evening Gazette|Xenia, Ohio|ia"
+   ]
+  },
+  {
+   "id": "crash-1929",
+   "title": "The Stock Market Crash of 1929",
+   "start": "1929-10-24",
+   "end": "1929-11-15",
+   "loc_query": "stock market crash",
+   "ia_terms": [
+    "stock",
+    "market"
+   ],
+   "context": "Prices on the New York Stock Exchange fell sharply on Thursday, October 24, 1929 ('Black Thursday'), when leading bankers organized buying to steady the market, and collapsed again on Monday, October 28, and Tuesday, October 29 ('Black Tuesday'), when about 16 million shares changed hands. The crash wiped out paper fortunes and is often taken as the start of the Great Depression, though historians stress that its causes and effects were broader.",
+   "reading_notes": "Watch how officials and business leaders reassured the public, and how quickly papers called the worst over. Ticker delays meant readers often learned prices hours late.",
+   "questions": [
+    "What did bankers do on October 24?",
+    "How did officials reassure investors?",
+    "How were small investors affected?"
+   ],
+   "file": "shard-crash-1929.json",
+   "stats": {
+    "pages": 16,
+    "passages": 1025,
+    "newspapers": 12,
+    "places": [
+     "Brainerd, Minnesota",
+     "El Centro, Calif.",
+     "Kingston, New York",
+     "Plentywood, Mont.",
+     "Salem, Ohio",
+     "South Bend, Ind.",
+     "Springfield, Mass.",
+     "Washington [D.C.]",
+     "Washington, D.C."
+    ],
+    "sources": {
+     "ia": 4,
+     "loc": 12
+    },
+    "dates": [
+     "1929-10-24",
+     "1929-11-14"
+    ]
+   },
+   "titles": [
+    "Brainerd Daily Dispatch|Brainerd, Minnesota|ia",
+    "Chicago Daily Tribune||ia",
+    "Evening star|Washington, D.C.|loc",
+    "Imperial Valley press|El Centro, Calif.|loc",
+    "Kingston Daily Freeman|Kingston, New York|ia",
+    "Salem News|Salem, Ohio|ia",
+    "South Bend news-times|South Bend, Ind.|loc",
+    "Springfield weekly Republican|Springfield, Mass.|loc",
+    "The Washington daily news|Washington, D.C.|loc",
+    "The Washington herald|Washington, D.C.|loc",
+    "The Washington times|Washington [D.C.]|loc",
+    "The producers news|Plentywood, Mont.|loc"
+   ]
+  },
+  {
+   "id": "india-headlines-2020",
+   "group": "India desk",
+   "title": "Indian Headlines, August 2020",
+   "start": "2020-08-01",
+   "end": "2020-08-18",
+   "headlines_file": "legacy/Source Provider.zip",
+   "context": "Headlines from 87 Indian news outlets, from The Times of India, The Hindu and The Indian Express to NDTV, Mint, Scroll.in and regional papers such as the Deccan Herald, The Tribune and The Sentinel. They were collected for this project's first version, almost all between 1 and 18 August 2020 (a few dozen older items came along). India was then in the 'Unlock 3' phase of easing its COVID-19 lockdown, and reported cases passed two million in early August. Other stories of that fortnight include the foundation-stone ceremony for the Ram temple in Ayodhya on 5 August, the Air India Express crash at Kozhikode on 7 August, and the violence in Bengaluru on 11 August.",
+   "reading_notes": "These are headlines only, with a link to each article; the article text is not stored, so open the link to read the story. Each record carries the topic the aggregator assigned (Nation, World, Business, Health and so on), which is not always the outlet's own section. Many outlets ran the same agency copy (PTI, ANI, IANS) under different headlines, and online headlines are written to be clicked. Some links may have moved or gone behind paywalls since 2020.",
+   "questions": [
+    "How did Indian outlets cover COVID-19 vaccine trials?",
+    "What was reported about the Kozhikode plane crash?",
+    "Ayodhya Ram temple bhoomi pujan",
+    "How did the business press report the economy and RBI?"
+   ],
+   "file": "shard-india-headlines-2020.json",
+   "stats": {
+    "pages": 7648,
+    "passages": 7648,
+    "newspapers": 87,
+    "places": [
+     "Bengaluru",
+     "Chandigarh",
+     "Chennai",
+     "Guwahati",
+     "Hyderabad",
+     "Kochi",
+     "Kolkata",
+     "Mumbai",
+     "New Delhi",
+     "Noida"
+    ],
+    "sources": {
+     "headline": 7648
+    },
+    "dates": [
+     "2017-10-16",
+     "2020-08-18"
+    ]
+   },
+   "titles": [
+    "91mobiles||headline",
+    "ANI (Asian News International)|New Delhi|headline",
+    "Bangalore Mirror|Bengaluru|headline",
+    "Bollywood Hungama|Mumbai|headline",
+    "Business Insider India||headline",
+    "Business Standard|New Delhi|headline",
+    "CNBC-TV18|Mumbai|headline",
+    "DNA|Mumbai|headline",
+    "Dainik Jagran (English)|Noida|headline",
+    "Deccan Chronicle|Hyderabad|headline",
+    "Deccan Herald|Bengaluru|headline",
+    "ESPN India||headline",
+    "Firstpost|Mumbai|headline",
+    "Hindustan Times|New Delhi|headline",
+    "India TV|Noida|headline",
+    "India Today|Noida|headline",
+    "India.com||headline",
+    "IndiaGlitz|Chennai|headline",
+    "Indiatimes||headline",
+    "Koimoi|Mumbai|headline",
+    "Mid-Day|Mumbai|headline",
+    "Mint|New Delhi|headline",
+    "Moneycontrol|Mumbai|headline",
+    "Mumbai Mirror|Mumbai|headline",
+    "NDTV|New Delhi|headline",
+    "National Herald|New Delhi|headline",
+    "News18|Noida|headline",
+    "Oneindia|Bengaluru|headline",
+    "OpIndia||headline",
+    "Pinkvilla|Mumbai|headline",
+    "Scroll.in||headline",
+    "The Economic Times|Mumbai|headline",
+    "The Free Press Journal|Mumbai|headline",
+    "The Hans India|Hyderabad|headline",
+    "The Hindu BusinessLine|Chennai|headline",
+    "The Hindu|Chennai|headline",
+    "The Indian Express|New Delhi|headline",
+    "The News Minute|Bengaluru|headline",
+    "The Quint|Noida|headline",
+    "The Sentinel|Guwahati|headline",
+    "The Siasat Daily|Hyderabad|headline",
+    "The Statesman|Kolkata|headline",
+    "The Telegraph|Kolkata|headline",
+    "The Times of India|Mumbai|headline",
+    "The Tribune|Chandigarh|headline",
+    "The Week|Kochi|headline",
+    "The Wire|New Delhi|headline",
+    "ThePrint|New Delhi|headline",
+    "Times Now|Mumbai|headline",
+    "Vogue India|Mumbai|headline",
+    "WION|Noida|headline",
+    "Zee News|Noida|headline",
+    "arunachaltimes.in||headline",
+    "bgr.in||headline",
+    "boomlive.in||headline",
+    "caravanmagazine.in||headline",
+    "cntraveller.in||headline",
+    "dailyo.in||headline",
+    "downtoearth.org.in||headline",
+    "duexpress.in||headline",
+    "edtimes.in||headline",
+    "eetindia.co.in||headline",
+    "expresscomputer.in||headline",
+    "expresshealthcare.in||headline",
+    "goodreturns.in||headline",
+    "ianslive.in||headline",
+    "ibtimes.co.in||headline",
+    "indiaeducationdiary.in||headline",
+    "indiasopinion.in||headline",
+    "inventiva.co.in||headline",
+    "kolkatanews24.co.in||headline",
+    "medicaldialogues.in||headline",
+    "millenniumpost.in||headline",
+    "nenow.in||headline",
+    "newsd.in||headline",
+    "newsheads.in||headline",
+    "odishatv.in||headline",
+    "primefeed.in||headline",
+    "sportscafe.in||headline",
+    "taxscan.in||headline",
+    "technosports.co.in||headline",
+    "techquila.co.in||headline",
+    "the12thman.in||headline",
+    "thebridge.in||headline",
+    "thedailychronicle.in||headline",
+    "tkbsen.in||headline",
+    "trak.in||headline"
+   ]
+  },
+  {
+   "id": "gazette-of-india-2000",
+   "group": "India desk",
+   "title": "The Gazette of India, 30 September 2000",
+   "start": "2000-09-30",
+   "end": "2000-09-30",
+   "ia_items": [
+    "in.gazette.central.w.2000-09-30.153"
+   ],
+   "ia_item_fields": {
+    "source": "gazette",
+    "newspaper": "The Gazette of India, Part III, Section 4",
+    "place": "New Delhi",
+    "section": "Part III, Section 4",
+    "rights": "Government of India publication, digitized by Public.Resource.Org and the Internet Archive (gazetteofindia collection)."
+   },
+   "context": "The Gazette of India is the Government of India's official journal of record, published in Hindi and English. Laws, rules, appointments and public notices take legal effect by appearing in it. This weekly issue's Part III, Section 4 carries 'Miscellaneous Notifications including Notifications, Orders, Advertisements and Notices issued by Statutory Bodies'. Here that means notices from the Reserve Bank of India and public-sector banks, such as lists of government securities reported lost under the Public Debt Act, 1944, and bank regulations on staff taking private employment after retirement. It is the issue the first version of this project scraped. This copy comes from the Internet Archive, whose OCR reads both the English and the Hindi pages.",
+   "reading_notes": "A gazette is a legal record, not a newspaper. Notices are formal and repetitive, and long tables (lists of securities, names and addresses) come out of OCR as broken fragments. The Hindi and English versions of a notice often appear side by side, so search in either language. Citations point to the issue; use the Internet Archive viewer to find the page.",
+   "questions": [
+    "Which securities were reported lost to the Reserve Bank of India?",
+    "Rules on bank officers taking private employment after retirement",
+    "सेवानिवृत्ति के पश्चात् निजी क्षेत्र में नियोजन",
+    "State Bank of India appointment of managing director"
+   ],
+   "file": "shard-gazette-of-india-2000.json",
+   "stats": {
+    "pages": 1,
+    "passages": 1330,
+    "newspapers": 1,
+    "places": [
+     "New Delhi"
+    ],
+    "sources": {
+     "gazette": 1
+    },
+    "dates": [
+     "2000-09-30",
+     "2000-09-30"
+    ]
+   },
+   "titles": [
+    "The Gazette of India, Part III, Section 4|New Delhi|gazette"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collections · The Time Capsule</title>
+<meta name="description" content="Historical events 1865-1929 as newspapers reported them, plus an India desk of Indian headlines and the Gazette of India, with context and reading notes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238c1c13'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='20' font-weight='700' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="top"><span>An open research archive</span><button class="theme-btn" type="button" aria-label="Toggle dark mode">Light / dark</button></div>
+    <h1><a href="index.html">The Time Capsule</a></h1>
+    <p class="tag">A reading room for historical newspapers: search OCR'd front pages, with every answer cited to the scan</p>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Ask the archive</a>
+      <a href="collections.html" aria-current="page">Collections</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method &amp; reading guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="narrow">
+    <div class="kicker">Collections</div>
+    <h2 style="margin-top:4px">Research collections</h2>
+    <p class="lede">Each collection gathers pages printed in the days and weeks after a major event, from many
+      newspapers and places. Every collection has a short historical overview, notes on what to watch for when
+      reading the coverage, and starter questions. The <a href="#india-desk">India desk</a> holds material from this
+      project's own archive: headlines from Indian news outlets and a bilingual issue of the Gazette of India.</p>
+    <p class="small muted sans">The overviews give background so you can judge the sources. They are not quoted from the newspapers and are kept apart from search results.</p>
+  </div>
+  <div id="cols"><p class="status">Loading collections ...</p></div>
+</main>
+<script type="module">
+import { esc, loadManifest, longDate, SOURCE_LABEL } from "./assets/common.js";
+const m = await loadManifest();
+const n = (k, one, many) => `${k.toLocaleString()} ${k === 1 ? one : many}`;
+const groupOf = (c) => c.group || "Historical events";
+let lastGroup = null;
+document.getElementById("cols").innerHTML = m.collections.map((c) => {
+  const g = groupOf(c);
+  const head = g !== lastGroup ? `<h2 id="${g === "India desk" ? "india-desk" : "historical"}" style="margin-top:56px">${esc(g)}</h2>` : "";
+  lastGroup = g;
+  const s = c.stats;
+  const titles = c.titles.map((t) => t.split("|")).map(([n, p, src]) => `<li>${esc(n)}${p ? `, <span class="muted">${esc(p)}</span>` : ""} <span class="badge">${esc(SOURCE_LABEL[src])}</span></li>`).join("");
+  return `${head}<section id="${c.id}" style="scroll-margin-top:16px"><hr class="rule">
+    <div class="layout" style="margin-top:0">
+      <div>
+        <div class="kicker">${esc(longDate(c.start))}${c.start !== c.end ? ` – ${esc(longDate(c.end))}` : ""}</div>
+        <h2 style="margin-top:4px">${esc(c.title)}</h2>
+        <p>${esc(c.context)}</p>
+        <p><b>Reading notes.</b> ${esc(c.reading_notes)}</p>
+        <h3>Start with</h3>
+        <div class="chips">${c.questions.map((q) => `<a class="chip" style="text-decoration:none" href="index.html?q=${encodeURIComponent(q)}&c=${c.id}">${esc(q)}</a>`).join("")}</div>
+      </div>
+      <aside><div class="box">
+        <h3>In this collection</h3>
+        <p class="small sans">${n(s.pages, c.headlines_file ? "headline" : s.pages === 1 ? "issue" : "pages or issues", c.headlines_file ? "headlines" : "pages or issues")} · ${n(s.passages, "passage", "passages")} · ${n(s.newspapers, c.headlines_file ? "outlet" : "title", c.headlines_file ? "outlets" : "titles")} · ${n(s.places.length, "place", "places")}<br>
+        ${c.headlines_file ? "Published" : "Printed"} ${esc(longDate(s.dates[0]))}${s.dates[0] !== s.dates[1] ? ` to ${esc(longDate(s.dates[1]))}` : ""}</p>
+        ${c.titles.length > 15 ? `<details><summary class="small sans">All ${c.titles.length} sources</summary><ul class="small">${titles}</ul></details>` : `<ul class="small">${titles}</ul>`}
+      </div></aside>
+    </div></section>`;
+}).join("");
+if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+</script>
+<footer>
+  <div class="wrap">
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
+  </div>
+</footer>
+</body>
+</html>
