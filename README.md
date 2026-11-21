@@ -15,7 +15,7 @@ Nothing is generated unless you ask for it, and generated summaries must cite th
 The archive holds **191 scanned pages and issues from 126 newspapers in 105 places, printed 1865-1929**,
 across 12 historical collections, plus an **India desk** built from this project's own archive: **7,648 headlines
 from 87 Indian news outlets** (August 2020) and the **bilingual Hindi/English Gazette of India** of 30 September 2000.
-That is 36,648 searchable passages in the Python corpus, 18,354 of them on the website.
+The India desk also samples two centuries of Indian newspapers and gazettes (below).
 
 ## Sources
 
@@ -53,6 +53,31 @@ context, reading notes on how the event was (mis)reported, and starter questions
 | The Stock Market Crash of 1929 | Oct 24 - Nov 15, 1929 |
 | **India desk:** Indian Headlines, August 2020 | Aug 1-18, 2020 |
 | **India desk:** The Gazette of India, 30 September 2000 | Sep 30, 2000 |
+
+| **India desk:** Bombay's English Press, 1811-1930 (decade sample of 4 papers) | 1811-1930 |
+| **India desk:** Indian-Language Press: Tamil and Telugu, 1850-1930 | 1850-1930 |
+| **India desk:** Gazettes of India Through Time (union and state) | 1920s-2020s |
+
+### India archive: all of India's gazettes and newspapers on the Internet Archive
+
+`site/india.html` catalogues **933,000+ items** by year and searches all of them in full text, live, through
+the Internet Archive's search service (in English or Indian scripts):
+
+- **Gazettes:** all 877,370 issues of the `gazetteofindia` collection in ~40 series (Gazette of India weekly and
+  extraordinary, Haryana, Kerala, Rajasthan, Odisha, Bihar, Andhra Pradesh, Maharashtra, Karnataka, Tamil Nadu,
+  Goa, Travancore, Fort St. George and more), plus 1,631 bound volumes from the Digital Library of India.
+- **Newspapers:** Bombay Courier (1811-1842), The Bombay Gazette (1814-1914), The Bombay Guardian (1851-1889),
+  The Bombay Chronicle (1913-1958), Tamil newspapers and periodicals (Endangered Archives Programme), Zamin Ryot
+  (Telugu), Indian Opinion, Faridabad Majdoor Samachar, and recent e-paper editions (links only).
+
+Public-domain material (newspapers before 1931, government gazettes) is sampled decade by decade into the corpus
+above; later newspapers are catalogued and linked, never copied.
+
+```bash
+timecapsule india-search "plague" --scope bombay-papers --from 1896 --to 1900
+timecapsule india-search "सेवानिवृत्ति" --scope gazettes
+timecapsule india-catalog          # rebuild site/data/india-catalog.json from the Internet Archive
+```
 
 Search works in **Hindi and other Indian scripts** as well as English: the tokenizer keeps Devanagari, Bengali,
 Gurmukhi, Gujarati, Odia, Tamil, Telugu, Kannada, Malayalam and Urdu text (with vowel signs intact), sentence

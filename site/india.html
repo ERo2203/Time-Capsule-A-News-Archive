@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>India Archive · The Time Capsule</title>
+<meta name="description" content="Every Indian gazette and newspaper on the Internet Archive: catalogued by year, searchable in full text, and sampled into The Time Capsule.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238c1c13'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='20' font-weight='700' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="top"><span>An open research archive</span><button class="theme-btn" type="button" aria-label="Toggle dark mode">Light / dark</button></div>
+    <h1><a href="index.html">The Time Capsule</a></h1>
+    <p class="tag">A reading room for historical newspapers: search OCR'd front pages, with every answer cited to the scan</p>
+    <nav class="main" aria-label="Main">
+      <a href="index.html">Ask the archive</a>
+      <a href="india.html" aria-current="page">India archive</a>
+      <a href="collections.html">Collections</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method &amp; reading guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="narrow">
+    <div class="kicker">India archive</div>
+    <h2 style="margin-top:4px">India's gazettes and newspapers, across two centuries</h2>
+    <p class="lede">Everything we could find on the Internet Archive: the Gazette of India and every state gazette,
+      Bombay's English papers from 1811, Tamil and Telugu periodicals, and recent e-paper editions. All of it is
+      catalogued by year below and can be searched in full text, in English or Indian scripts. A
+      decade-by-decade sample of the public-domain material is also part of this archive's own corpus, so you can
+      ask it questions on the <a href="index.html">main search</a> and get quoted, cited evidence.</p>
+    <p class="sans small muted"><span id="totals">Loading catalog ...</span></p>
+  </div>
+
+  <section id="search" class="ask" style="margin-top:22px" aria-labelledby="s-h">
+    <h2 id="s-h" style="margin:0 0 4px;font-size:22px">Search inside all of it</h2>
+    <p class="sans small muted" style="margin:0 0 12px">Live full-text search of the Internet Archive. Results link to
+      the scanned issue at the Archive and are not quoted from this site's corpus. Recent, in-copyright e-papers are
+      left out.</p>
+    <form id="s-form" role="search">
+      <label class="sr" for="s-q">Search words</label>
+      <input id="s-q" type="search" placeholder='e.g. plague, "salt tax", सेवानिवृत्ति, கல்வி' required>
+      <button class="primary" type="submit">Search</button>
+    </form>
+    <div class="filters">
+      <label>In <select id="s-scope"></select></label>
+      <label>From <input id="s-from" type="number" min="1700" max="2026" placeholder="year" style="width:90px"></label>
+      <label>To <input id="s-to" type="number" min="1700" max="2026" placeholder="year" style="width:90px"></label>
+    </div>
+    <div class="chips">
+      <button type="button" class="chip" data-q="plague" data-scope="bombay-papers">plague in the Bombay papers</button>
+      <button type="button" class="chip" data-q="&quot;salt tax&quot;" data-scope="all">"salt tax"</button>
+      <button type="button" class="chip" data-q="partition refugees" data-scope="gazettes">partition refugees in gazettes</button>
+      <button type="button" class="chip" data-q="सेवानिवृत्ति" data-scope="gazettes">सेवानिवृत्ति (retirement)</button>
+      <button type="button" class="chip" data-q="காந்தி" data-scope="tamil">காந்தி (Gandhi) in Tamil papers</button>
+    </div>
+    <p class="status" id="s-status" aria-live="polite"></p>
+    <div id="s-results"></div>
+    <button type="button" class="chip" id="s-more" hidden>More results</button>
+  </section>
+
+  <h2>Newspapers</h2>
+  <div id="papers"></div>
+
+  <h2>Gazettes</h2>
+  <div class="narrow"><p>A gazette is the government's official journal: acts, rules, appointments, land
+    acquisitions and public notices take legal effect by appearing in it. They record the working of the state
+    in great detail, from colonial provincial governments to today's union and state governments, often in two
+    languages.</p></div>
+  <div id="gazettes"></div>
+
+  <div class="narrow">
+    <h2>About this catalog</h2>
+    <ul>
+      <li>Counts come from the Internet Archive's search service when this site was built; the Archive keeps
+        growing, so the live search may find more.</li>
+      <li><b>Sampled here</b> means public-domain issues (newspapers published before 1931, and government
+        gazettes, which are official legal texts) have been copied into this archive's corpus at a few issues per
+        decade. <b>Link only</b> means the material is catalogued and linked but its text is not copied, usually
+        because it may still be in copyright.</li>
+      <li>Rebuild the catalog with <code>timecapsule india-catalog</code>, search from the terminal with
+        <code>timecapsule india-search "query" --scope gazettes</code>, and pull more issues into the corpus by
+        raising <code>per_decade</code> in <code>corpus/collections.json</code>.</li>
+    </ul>
+  </div>
+</main>
+<script type="module" src="assets/india.js"></script>
+<footer>
+  <div class="wrap">
+    <p>Newspaper pages and OCR courtesy of the <a href="https://www.loc.gov/collections/chronicling-america/">Library of Congress, Chronicling America</a> (a partnership with the National Endowment for the Humanities) and the <a href="https://archive.org/details/newspapers">Internet Archive</a>. The historical newspapers were all published before 1931. The India desk adds headlines and links from Indian news outlets (2020) and an issue of the Gazette of India (2000) from this project's own archive. Historical context notes are written for this project; see <a href="sources.html">Sources</a>.</p>
+    <p>Open source: <a href="https://github.com/ERo2203/Time-Capsule-A-News-Archive">github.com/ERo2203/Time-Capsule-A-News-Archive</a>. Search runs entirely in your browser; nothing you type is sent anywhere.</p>
+  </div>
+</footer>
+</body>
+</html>
