@@ -40,6 +40,17 @@ def harvest(only: list[str] | None = None, loc_pages: int = 12, ia_issues: int =
             for p in internet_archive.fetch_items(col["ia_items"], collection=col["id"], **col.get("ia_item_fields", {})):
                 print(f"  item {p.date} {p.newspaper}: {len(p.text):,} characters of OCR")
                 pages.append(p)
+        for spec in col.get("india_samples", []):
+            from .india import SOURCES as INDIA_SOURCES, fetch_sample
+
+            src = next((x for x in INDIA_SOURCES if x["id"] == spec.get("source")), None) or spec
+            for p in fetch_sample(src, spec["start"], spec["end"], col["id"], spec.get("per_decade", 1),
+                                  spec.get("max_chars", 400_000), spec.get("kind", "ia"),
+                                  spec.get("sort", "identifier asc"), spec.get("candidates", 6)):
+                if any(q.id == p.id for q in pages):
+                    continue  # the same issue picked by two sampling rules
+                print(f"  india {p.date} {p.newspaper[:60]}: {len(p.text):,} chars")
+                pages.append(p)
         if loc_pages and col.get("loc_query"):
             for p in loc.fetch(col["loc_query"], col["start"], col["end"], limit=loc_pages,
                                collection=col["id"]):

@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "min_quality": 0.5,
  "sources": {
   "loc": {
@@ -29,12 +29,12 @@
   }
  },
  "totals": {
-  "pages": 7840,
-  "passages": 18354,
-  "newspapers": 214,
-  "places": 115,
-  "scanned": 192,
-  "scanned_titles": 127,
+  "pages": 7891,
+  "passages": 23984,
+  "newspapers": 232,
+  "places": 119,
+  "scanned": 243,
+  "scanned_titles": 145,
   "headlines": 7648,
   "outlets": 87
  },
@@ -768,6 +768,189 @@
     "The Washington herald|Washington, D.C.|loc",
     "The Washington times|Washington [D.C.]|loc",
     "The producers news|Plentywood, Mont.|loc"
+   ]
+  },
+  {
+   "id": "bombay-press",
+   "group": "India desk",
+   "title": "Bombay's English Press, 1811-1930",
+   "start": "1811-01-01",
+   "end": "1930-12-31",
+   "india_samples": [
+    {
+     "source": "bombay-courier",
+     "start": 1811,
+     "end": 1842
+    },
+    {
+     "source": "bombay-gazette",
+     "start": 1814,
+     "end": 1914
+    },
+    {
+     "source": "bombay-guardian",
+     "start": 1851,
+     "end": 1889
+    },
+    {
+     "source": "bombay-chronicle",
+     "start": 1913,
+     "end": 1930
+    }
+   ],
+   "context": "A decade-by-decade sample from four Bombay newspapers held in the Internet Archive's IndiaHistory collection: the Bombay Courier, The Bombay Gazette, The Bombay Guardian and The Bombay Chronicle. Together they cover more than a century of the city, from an East India Company port to the commercial capital of British India. They span the cotton boom of the 1860s, the plague that struck Bombay from 1896, the 1918 influenza and the rise of the nationalist movement, which The Bombay Chronicle (founded 1910) championed. The full runs total almost 30,000 issues. Use the India archive page to search inside all of them.",
+   "reading_notes": "These were papers of the colonial and commercial elite, mostly British-owned until the Chronicle. Much of each issue is advertising, shipping lists, government notices and reprinted European news. Indian voices appear chiefly in letters, court reports and, later, the nationalist press. The OCR comes from a modern engine running over old microfilm, so expect noise in small type and tables. Only issues published before 1931 are copied here.",
+   "questions": [
+    "plague deaths in Bombay",
+    "cotton prices and the American war",
+    "What did papers say about the Indian National Congress?",
+    "shipping arrivals from London"
+   ],
+   "file": "shard-bombay-press.json",
+   "stats": {
+    "pages": 20,
+    "passages": 4359,
+    "newspapers": 4,
+    "places": [
+     "Bombay"
+    ],
+    "sources": {
+     "ia": 20
+    },
+    "dates": [
+     "1811-01-05",
+     "1930-02-03"
+    ]
+   },
+   "titles": [
+    "Bombay Courier|Bombay|ia",
+    "The Bombay Chronicle|Bombay|ia",
+    "The Bombay Gazette|Bombay|ia",
+    "The Bombay Guardian|Bombay|ia"
+   ]
+  },
+  {
+   "id": "indian-language-press",
+   "group": "India desk",
+   "title": "Indian-Language Press: Tamil and Telugu, 1850-1930",
+   "start": "1850-01-01",
+   "end": "1930-12-31",
+   "india_samples": [
+    {
+     "source": "tamil-periodicals",
+     "start": 1850,
+     "end": 1930,
+     "per_decade": 2,
+     "max_chars": 250000
+    },
+    {
+     "source": "zamin-ryot",
+     "start": 1930,
+     "end": 1930,
+     "per_decade": 3,
+     "max_chars": 250000
+    }
+   ],
+   "context": "Tamil newspapers and periodicals from the 1850s to 1930, such as Narpotakam, Janavinotini, Arunotayam and others, digitized through the British Library's Endangered Archives Programme. Alongside them are 1930 issues of Zamin Ryot, a Telugu weekly from Nellore. Indian-language papers reached far more readers than the English press and carried debates on religion, social reform, education and politics in their readers' own languages.",
+   "reading_notes": "Search in Tamil or Telugu script. OCR for Indian scripts on old type is noisy: conjunct letters and vowel signs are often misread, so try several forms of a word. Many periodicals were monthly or irregular, and dates in titles are sometimes approximate.",
+   "questions": [
+    "கல்வி",
+    "காந்தி",
+    "రైతు",
+    "ప్రభుత్వం"
+   ],
+   "file": "shard-indian-language-press.json",
+   "stats": {
+    "pages": 17,
+    "passages": 731,
+    "newspapers": 9,
+    "places": [
+     "Nellore",
+     "Tamil Nadu and Sri Lanka"
+    ],
+    "sources": {
+     "ia": 17
+    },
+    "dates": [
+     "1850",
+     "1930-05-18"
+    ]
+   },
+   "titles": [
+    "Arunotayam|Tamil Nadu and Sri Lanka|ia",
+    "Cattiya tutan|Tamil Nadu and Sri Lanka|ia",
+    "Kumaran|Tamil Nadu and Sri Lanka|ia",
+    "Nanapotini|Tamil Nadu and Sri Lanka|ia",
+    "Narpotakam|Tamil Nadu and Sri Lanka|ia",
+    "Uliyan|Tamil Nadu and Sri Lanka|ia",
+    "Vaiciyamitran|Tamil Nadu and Sri Lanka|ia",
+    "Zamin Ryot|Nellore|ia",
+    "நூல் 1: வைத்தியர் லட்சணம்; நூல் 2: திருமூல நாயனார் அருளி செய்த தத்துவம்; நூல் 3: நிகழானந்தம்; நூல் 4: சிவ தரிசனம்; நூல் 5: உடலறி விளக்கம்; நூல் 6: நாகாரூட சித்திராரூடம்; நூல் 7: இலக்கண சம்கிதை; நூல் 8...|Tamil Nadu and Sri Lanka|ia"
+   ]
+  },
+  {
+   "id": "gazettes-through-time",
+   "group": "India desk",
+   "title": "Gazettes of India Through Time, 1920s-2020s",
+   "start": "1920-01-01",
+   "end": "2026-12-31",
+   "india_samples": [
+    {
+     "query": "collection:gazetteofindia AND (identifier:in.gazette.central* OR identifier:in.gazette.e.* OR identifier:in.gazette.csl* OR identifier:in.gazette.19* OR identifier:in.gazette.20*)",
+     "name": "Gazette of India",
+     "place": "New Delhi",
+     "id": "gazette-of-india",
+     "start": 1920,
+     "end": 2026,
+     "kind": "gazette",
+     "max_chars": 250000,
+     "sort": "random",
+     "candidates": 15
+    },
+    {
+     "query": "collection:gazetteofindia AND NOT identifier:in.gazette.central* AND NOT identifier:in.gazette.e.* AND NOT identifier:in.gazette.csl* AND NOT identifier:in.gazette.19* AND NOT identifier:in.gazette.20*",
+     "name": "State and provincial gazettes",
+     "place": "India",
+     "id": "state-gazettes",
+     "start": 1860,
+     "end": 2026,
+     "kind": "gazette",
+     "max_chars": 250000,
+     "sort": "random",
+     "candidates": 15
+    }
+   ],
+   "context": "About one gazette issue per decade from the 1920s to the 2020s: the Gazette of India (weekly and extraordinary issues, before and after independence) and state gazettes such as Haryana's, Tamil Nadu's and Karnataka's. Gazettes are where government becomes law: they carry acts and ordinances, appointments, land acquisitions, notices of lost securities, name changes and public notices. The Internet Archive's gazetteofindia collection, digitized by Public.Resource.Org, holds over 877,000 issues. Use the India archive page to search inside all of them.",
+   "reading_notes": "Gazettes are formal legal records and often bilingual (English with Hindi or a state language). Tables and lists OCR poorly. The issue date is the date of publication, which is not always when a notification took effect. Citations point to the issue; open it at the Internet Archive to find the page.",
+   "questions": [
+    "land acquisition notification",
+    "appointment of judges",
+    "change of name notice",
+    "famine relief"
+   ],
+   "file": "shard-gazettes-through-time.json",
+   "stats": {
+    "pages": 14,
+    "passages": 540,
+    "newspapers": 5,
+    "places": [
+     "India",
+     "New Delhi"
+    ],
+    "sources": {
+     "gazette": 14
+    },
+    "dates": [
+     "1922-07-01",
+     "2023-08-05"
+    ]
+   },
+   "titles": [
+    "Gazette of India: Extraordinary|New Delhi|gazette",
+    "Gazette of India|New Delhi|gazette",
+    "Haryana Gazette|India|gazette",
+    "Karnataka ExtraOrdinary Gazette|India|gazette",
+    "Tamil Nadu|India|gazette"
    ]
   },
   {

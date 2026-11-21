@@ -68,8 +68,10 @@ def _site_selection(chunks: list[Chunk], cols: dict[str, dict]) -> list[bool]:
             by_page.setdefault(c.page_id, []).append(i)
     for idxs in by_page.values():
         terms = cols.get(chunks[idxs[0]].collection, {}).get("ia_terms", [])
-        pat = re.compile("|".join(rf"\b{re.escape(t)}" for t in terms), re.I) if terms else None
-        hits = [j for j, i in enumerate(idxs) if pat and pat.search(chunks[i].text)]
+        if not terms:
+            continue  # not an event collection (e.g. a decade sample): keep every passage
+        pat = re.compile("|".join(rf"\b{re.escape(t)}" for t in terms), re.I)
+        hits = [j for j, i in enumerate(idxs) if pat.search(chunks[i].text)]
         near = {j + d for j in hits for d in range(-IA_CONTEXT_WINDOWS, IA_CONTEXT_WINDOWS + 1)}
         for j, i in enumerate(idxs):
             keep[i] = keep[i] and j in near

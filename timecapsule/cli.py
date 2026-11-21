@@ -90,6 +90,25 @@ def cmd_ask(args):
         print(f"note: {n}")
 
 
+def cmd_india_catalog(args):
+    from .india import build_catalog
+
+    build_catalog(Path(args.out), Path(args.gazette_items) if args.gazette_items else None)
+    print(f"catalog -> {args.out}")
+
+
+def cmd_india_search(args):
+    from .india import live_search
+
+    total, hits = live_search(args.query, args.scope, args.date_from, args.date_to, hits=args.k)
+    print(f"{total:,} matching pages on the Internet Archive (showing {len(hits)})\n")
+    for h in hits:
+        snippet = h["snippet"].replace("{{{", "[").replace("}}}", "]")
+        print(f"{h['date'] or 'undated'}  {h['title']}")
+        print(textwrap.fill(snippet, 100, initial_indent="    ", subsequent_indent="    "))
+        print(f"    {h['url']}\n")
+
+
 def cmd_serve(args):
     try:
         from flask import Flask, jsonify, request
@@ -138,6 +157,19 @@ def main(argv=None):
     p = sub.add_parser("build", help="chunk pages and export the website data")
     p.add_argument("--site-data", default="site/data")
     p.set_defaults(func=cmd_build)
+
+    p = sub.add_parser("india-catalog", help="count every Indian gazette series and newspaper on the Internet Archive")
+    p.add_argument("--out", default="site/data/india-catalog.json")
+    p.add_argument("--gazette-items", help="JSON lines of already-scraped gazetteofindia {identifier,title,year}")
+    p.set_defaults(func=cmd_india_catalog)
+
+    p = sub.add_parser("india-search", help="live full-text search of Indian gazettes and newspapers")
+    p.add_argument("query")
+    p.add_argument("--scope", default="all", help="all | gazettes | bombay-papers | tamil | telugu | <IA query>")
+    p.add_argument("--from", dest="date_from", type=int)
+    p.add_argument("--to", dest="date_to", type=int)
+    p.add_argument("-k", type=int, default=10)
+    p.set_defaults(func=cmd_india_search)
 
     for name, fn, hlp in (("ask", cmd_ask, "ask a research question"), ("serve", cmd_serve, "run a JSON API")):
         p = sub.add_parser(name, help=hlp)

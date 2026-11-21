@@ -55,3 +55,20 @@ def test_bilingual_gazette_search_in_hindi():
     ra = ResearchAssistant(chunk_page(page))
     ans = ra.ask("सेवानिवृत्ति के पश्चात् नियोजन", k=1)
     assert "सेवानिवृत्ति" in ans.evidence[0].quote
+
+
+def test_gazette_series_names_merge_variants():
+    from timecapsule.india import gazette_series
+    assert gazette_series("in.gazette.central.e.2021-07-22.228419", "Extraordinary Gazette of India, 2021-07-22") == "Gazette of India: Extraordinary"
+    assert gazette_series("in.gazette.csl_weekly.1991-05-03.x", "Weekly Gazette of India, 1991-05-03, Weekly") == "Gazette of India: Weekly"
+    assert gazette_series("in.gazette.maharashtra.x", "Maharashtra Gazette, 2010-01-01") == "Maharashtra Gazette"
+    assert gazette_series("in.gazette.maharashtra.y", "Maharashtra, 2011-01-01, Part 1") == "Maharashtra Gazette"
+    assert gazette_series("in.gazette.chhattisgarh.weekly.x", "Chattisgarh Gazette - Weekly, 2021-09-03") == "Chhattisgarh Gazette"
+    assert gazette_series("in.goa.egaz.1920-24.SIII", "Goa Gazette, 2019-09-12, OG") == "Goa Gazette"
+
+
+def test_iso_dates_are_padded():
+    from timecapsule.india import _iso
+    assert _iso("1987-1-1T00:00:00Z") == "1987-01-01"
+    assert _iso("1903-08-25") == "1903-08-25"
+    assert _iso("1850") == "1850"
