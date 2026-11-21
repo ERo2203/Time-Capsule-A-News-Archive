@@ -6,6 +6,8 @@ const SCOPE_LABEL = {
   all: "All historical Indian newspapers and gazettes",
   gazettes: "Gazette of India and state gazettes (877,000+ issues)",
   "bombay-papers": "Bombay papers: Courier, Gazette, Guardian, Chronicle (1811-1958)",
+  "calcutta-papers": "Calcutta papers: Calcutta Journal, Hindoo Patriot, Indian Mirror (1819-1891)",
+  "vernacular-reports": "Indian-language papers in translation: Vernacular Newspaper Reports (1868-1938)",
   tamil: "Tamil newspapers and periodicals",
   telugu: "Zamin Ryot (Telugu)",
 };
@@ -35,8 +37,9 @@ const iaSearch = (q) => `https://archive.org/search?query=${encodeURIComponent(q
 
 function sourceCard(s) {
   const sp = span(s.years);
-  const badge = s.rights === "full" ? `<span class="badge" title="Public-domain issues are sampled into this archive's full text">Sampled here</span>`
-    : `<span class="badge" title="In copyright or not yet sampled: catalogued and linked only">Link only</span>`;
+  const badge = s.sampled ? `<span class="badge" title="Public-domain issues are sampled into this archive's full text">Sampled here</span>`
+    : s.rights === "full" ? `<span class="badge" title="Public domain; searchable live but not copied into this archive">Search live</span>`
+    : `<span class="badge" title="May be in copyright: catalogued and linked only">Link only</span>`;
   return `<div class="card">
     <div class="kicker">${esc(s.language)} · ${esc(s.place)}</div>
     <h3>${esc(s.name)}</h3>
@@ -44,7 +47,7 @@ function sourceCard(s) {
     ${spark(s.years)}
     <div class="stats">${fmt(s.total)} items${sp ? `, ${sp[0]}-${sp[1]}` : ""} ${badge}<br>
       <a href="${iaSearch(s.query)}" target="_blank" rel="noopener">Browse at the Internet Archive</a>
-      ${s.rights === "full" || s.id === "indian-opinion" ? ` · <a href="#search" data-scope-query="${esc(s.query)}" data-scope-name="${esc(s.name)}">Search inside</a>` : ""}</div>
+      ${s.rights === "full" ? ` · <a href="#search" data-scope-query="${esc(s.query)}" data-scope-name="${esc(s.name)}">Search inside</a>` : ""}</div>
   </div>`;
 }
 
