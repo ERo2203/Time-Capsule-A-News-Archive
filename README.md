@@ -55,6 +55,8 @@ context, reading notes on how the event was (mis)reported, and starter questions
 | **India desk:** The Gazette of India, 30 September 2000 | Sep 30, 2000 |
 
 | **India desk:** Bombay's English Press, 1811-1930 (decade sample of 4 papers) | 1811-1930 |
+| **India desk:** Calcutta's English Press (Calcutta Journal, Hindoo Patriot) | 1819-1891 |
+| **India desk:** The Indian-Language Press in Translation (Vernacular Newspaper Reports) | 1868-1930 |
 | **India desk:** Indian-Language Press: Tamil and Telugu, 1850-1930 | 1850-1930 |
 | **India desk:** Gazettes of India Through Time (union and state) | 1920s-2020s |
 
@@ -67,7 +69,9 @@ the Internet Archive's search service (in English or Indian scripts):
   extraordinary, Haryana, Kerala, Rajasthan, Odisha, Bihar, Andhra Pradesh, Maharashtra, Karnataka, Tamil Nadu,
   Goa, Travancore, Fort St. George and more), plus 1,631 bound volumes from the Digital Library of India.
 - **Newspapers:** Bombay Courier (1811-1842), The Bombay Gazette (1814-1914), The Bombay Guardian (1851-1889),
-  The Bombay Chronicle (1913-1958), Tamil newspapers and periodicals (Endangered Archives Programme), Zamin Ryot
+  The Bombay Chronicle (1913-1958), The Calcutta Journal (1819-1823), The Hindoo Patriot (1875-1891), The Indian
+  Mirror, "Selections from the Vernacular Newspapers" (the government's weekly English translations of the
+  Indian-language press, 1868-1938), Tamil newspapers and periodicals (Endangered Archives Programme), Zamin Ryot
   (Telugu), Indian Opinion, Faridabad Majdoor Samachar, and recent e-paper editions (links only).
 
 Public-domain material (newspapers before 1931, government gazettes) is sampled decade by decade into the corpus

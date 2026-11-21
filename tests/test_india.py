@@ -72,3 +72,9 @@ def test_iso_dates_are_padded():
     assert _iso("1987-1-1T00:00:00Z") == "1987-01-01"
     assert _iso("1903-08-25") == "1903-08-25"
     assert _iso("1850") == "1850"
+
+
+def test_iso_parses_report_week_ranges():
+    from timecapsule.india import _iso
+    assert _iso("December 10-December 15, 1875") == "1875-12-10"
+    assert _iso("c. 1850") == "1850"

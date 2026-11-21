@@ -29,12 +29,12 @@
   }
  },
  "totals": {
-  "pages": 7987,
-  "passages": 33643,
-  "newspapers": 243,
-  "places": 119,
-  "scanned": 339,
-  "scanned_titles": 156,
+  "pages": 8041,
+  "passages": 40905,
+  "newspapers": 249,
+  "places": 121,
+  "scanned": 393,
+  "scanned_titles": 162,
   "headlines": 7648,
   "outlets": 87
  },
@@ -866,6 +866,112 @@
     "The Bombay Chronicle|Bombay|ia",
     "The Bombay Gazette|Bombay|ia",
     "The Bombay Guardian|Bombay|ia"
+   ]
+  },
+  {
+   "id": "calcutta-press",
+   "group": "India desk",
+   "title": "Calcutta's English Press, 1819-1891",
+   "start": "1819-01-01",
+   "end": "1891-12-31",
+   "india_samples": [
+    {
+     "source": "calcutta-journal",
+     "start": 1819,
+     "end": 1823,
+     "per_decade": 6,
+     "candidates": 30,
+     "max_chars": 250000
+    },
+    {
+     "source": "hindoo-patriot",
+     "start": 1875,
+     "end": 1891,
+     "per_decade": 6,
+     "candidates": 30,
+     "max_chars": 250000
+    }
+   ],
+   "context": "Calcutta was the capital of British India until 1911 and the centre of its press. The Calcutta Journal (1818-1823) was founded by James Silk Buckingham, who was deported for criticizing the East India Company's government. The Hindoo Patriot, founded in 1853, was one of the leading Indian-run English weeklies. Its 1875-1891 issues here cover the Vernacular Press Act of 1878, the Ilbert Bill controversy of 1883 and the founding of the Indian National Congress in 1885.",
+   "reading_notes": "The Calcutta Journal wrote for the European community and its quarrels with the Company. The Hindoo Patriot spoke for educated, propertied Bengalis and often criticized the government while professing loyalty to the Crown. Both reprint much from London papers.",
+   "questions": [
+    "Ilbert Bill",
+    "Vernacular Press Act",
+    "Indian National Congress",
+    "East India Company and the liberty of the press"
+   ],
+   "files": [
+    "shard-calcutta-press-1.json",
+    "shard-calcutta-press-2.json",
+    "shard-calcutta-press-3.json"
+   ],
+   "stats": {
+    "pages": 30,
+    "passages": 5055,
+    "newspapers": 2,
+    "places": [
+     "Calcutta"
+    ],
+    "sources": {
+     "ia": 30
+    },
+    "dates": [
+     "1819",
+     "1891-08-31"
+    ]
+   },
+   "titles": [
+    "The Calcutta Journal, or Political, Commercial and Literary Gazette|Calcutta|ia",
+    "The Hindoo Patriot|Calcutta|ia"
+   ]
+  },
+  {
+   "id": "vernacular-press-reports",
+   "group": "India desk",
+   "title": "The Indian-Language Press in Translation, 1868-1916",
+   "start": "1868-01-01",
+   "end": "1916-12-31",
+   "india_samples": [
+    {
+     "source": "vernacular-reports",
+     "start": 1868,
+     "end": 1930,
+     "per_decade": 4,
+     "candidates": 30,
+     "max_chars": 200000
+    }
+   ],
+   "context": "From the 1860s, provincial governments in British India had translators read the Indian-language press every week and report, in English, what each paper was saying, often quoting it at length. These 'Selections from the Vernacular Newspapers' (now Indian Newspaper Reports, held at the British Library) let you hear hundreds of Hindi, Urdu, Bengali, Marathi, Gujarati, Tamil and other newspapers that were never digitized, on famine, taxation, religion, the Vernacular Press Act, the partition of Bengal, the First World War and the national movement. The sample here runs from 1868 to 1916; later reports are searchable from the India archive page.",
+   "reading_notes": "These are surveillance documents: the government chose what to translate and how, and they over-represent criticism it worried about. Each entry names the original paper, its place and date, so cite both the report and the paper it summarizes. Translation can soften or sharpen the original's tone.",
+   "questions": [
+    "What did vernacular papers say about the famine?",
+    "partition of Bengal",
+    "Vernacular Press Act",
+    "Tilak"
+   ],
+   "files": [
+    "shard-vernacular-press-reports.json"
+   ],
+   "stats": {
+    "pages": 24,
+    "passages": 2207,
+    "newspapers": 4,
+    "places": [
+     "British India"
+    ],
+    "sources": {
+     "ia": 24
+    },
+    "dates": [
+     "1868-01-01",
+     "1916-09-30"
+    ]
+   },
+   "titles": [
+    "Report on Indian Newspapers And Periodicals in Bengal|British India|ia",
+    "Report on Native Papers in Bengal|British India|ia",
+    "Report on Native Papers|British India|ia",
+    "Selections from the Vernacular Newspapers|British India|ia"
    ]
   },
   {
