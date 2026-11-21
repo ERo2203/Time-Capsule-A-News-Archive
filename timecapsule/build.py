@@ -21,6 +21,7 @@ from .store import DEFAULT_DIR, load_pages, write_jsonl
 
 SITE_DATA = Path("site/data")
 SITE_MIN_QUALITY = 0.5
+SHARD_BYTES = 2_000_000
 # Internet Archive items are whole issues with no layout. On the website we keep
 # the passages within this many windows of a mention of the event, which keeps
 # downloads small; the full issues stay in the Python corpus.
@@ -109,13 +110,27 @@ def export_site(pages, chunks: list[Chunk], site_dir: Path = SITE_DATA) -> None:
             }
             shard_pages.append({k: v for k, v in entry.items() if v not in (None, "")})  # keep shards small
         shard_chunks = [[idx[c.page_id], c.text, list(c.bbox) if c.bbox else None, c.quality] for c in cs]
-        fname = f"shard-{cid}.json"
-        (site_dir / fname).write_text(json.dumps({"pages": shard_pages, "chunks": shard_chunks},
-                                                 ensure_ascii=False, separators=(",", ":")))
+        # Split big collections into parts of about SHARD_BYTES so the browser can
+        # index each part as it arrives instead of waiting for one huge file.
+        parts, current, size = [], [], 0
+        for ch in shard_chunks:
+            current.append(ch)
+            size += len(ch[1].encode()) + 40
+            if size >= SHARD_BYTES:
+                parts.append(current)
+                current, size = [], 0
+        if current or not parts:
+            parts.append(current)
+        files = []
+        for i, part in enumerate(parts, 1):
+            fname = f"shard-{cid}.json" if len(parts) == 1 else f"shard-{cid}-{i}.json"
+            (site_dir / fname).write_text(json.dumps({"pages": shard_pages, "chunks": part},
+                                                     ensure_ascii=False, separators=(",", ":")))
+            files.append(fname)
         col_pages = [page_meta[pid] for pid in page_ids]
         manifest_cols.append({
             **col,
-            "file": fname,
+            "files": files,
             "stats": {
                 "pages": len(col_pages),
                 "passages": len(cs),

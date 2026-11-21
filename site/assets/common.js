@@ -48,18 +48,28 @@ export async function loadManifest() {
   return r.json();
 }
 
-export async function loadArchive(manifest, onProgress = () => {}) {
+/**
+ * Load every collection shard in parallel and index each one as soon as it
+ * arrives, so search can start before the large collections finish downloading.
+ * onShard(archive, loadedCount, total, collectionId) is called after each.
+ */
+export function loadArchive(manifest, onShard = () => {}) {
   const archive = new Archive();
-  let done = 0;
-  const shards = await Promise.all(manifest.collections.map(async (c) => {
-    const r = await fetch(`data/${c.file}`);
-    const json = await r.json();
-    onProgress(++done / (manifest.collections.length + 1));
-    return [c.id, json];
+  const jobs = manifest.collections.flatMap((c) => (c.files || [c.file]).map((f) => [c.id, f]));
+  const remaining = Object.fromEntries(manifest.collections.map((c) => [c.id, (c.files || [c.file]).length]));
+  const total = jobs.length;
+  let loaded = 0;
+  archive.loaded = new Set();  // collections whose parts have all arrived
+  const done = Promise.all(jobs.map(async ([id, file]) => {
+    try {
+      archive.addShard(id, await (await fetch(`data/${file}`)).json());
+    } catch (e) {
+      console.error(`Could not load ${file}`, e);
+    }
+    if (--remaining[id] === 0) archive.loaded.add(id);
+    onShard(archive, ++loaded, total, id);
   }));
-  for (const [id, json] of shards) archive.addShard(id, json);
-  onProgress(1);
-  return archive;
+  return { archive, done };
 }
 
 // Theme toggle (persists per browser; falls back gracefully when storage is blocked)

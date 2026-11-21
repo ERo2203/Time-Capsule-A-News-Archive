@@ -28,10 +28,22 @@ async function init() {
 
   const bar = $("#loader b");
   setStatus("Loading the archive into your browser ...");
-  archive = await loadArchive(manifest, (f) => { bar.style.width = `${Math.round(f * 100)}%`; });
-  $("#loader").hidden = true;
-  $("#ask-btn").disabled = false;
-  setStatus(`Ready. Searching ${archive.chunks.length.toLocaleString()} passages, entirely in your browser.`);
+  let started = false;
+  const loading = loadArchive(manifest, (a, n, total) => {
+    bar.style.width = `${Math.round((n / total) * 100)}%`;
+    if (!started) { started = true; $("#ask-btn").disabled = false; }
+    if (queued) { run(); return; }
+    if (n < total) {
+      if (!last) setStatus(`Loaded ${a.chunks.length.toLocaleString()} passages so far (${Math.round((n / total) * 100)}%). You can search now; results update as the rest arrive.`);
+      else run({ quiet: true });  // refresh the open results with the newly loaded collections
+    }
+  });
+  archive = loading.archive;
+  loading.done.then(() => {
+    $("#loader").hidden = true;
+    if (last) run({ quiet: true });
+    else setStatus(`Ready. Searching ${archive.chunks.length.toLocaleString()} passages, entirely in your browser.`);
+  });
 
   const p = new URLSearchParams(location.search);
   if (p.get("c")) sel.value = p.get("c");
@@ -66,8 +78,11 @@ function currentFilters() {
   return { col, from, to, src };
 }
 
-function run() {
-  if (!archive) return;
+let queued = false;  // a search asked for before any collection had loaded
+
+function run({ quiet = false } = {}) {
+  if (!archive || !archive.chunks.length) { queued = true; setStatus("Loading the archive; your search will run in a moment ..."); return; }
+  queued = false;
   const q = input.value.trim();
   if (!q) return;
   const f = currentFilters();
@@ -76,7 +91,7 @@ function run() {
   if (f.from) params.set("from", f.from);
   if (f.to) params.set("to", f.to);
   if (f.src) params.set("src", f.src);
-  history.replaceState(null, "", `?${params}`);
+  if (!quiet) history.replaceState(null, "", `?${params}`);
 
   const filter = (c) => (!f.col || c.page.collection === f.col) && (!f.from || c.page.date >= f.from)
     && (!f.to || c.page.date <= f.to) && (!f.src || c.page.src === f.src);
@@ -88,10 +103,16 @@ function run() {
     n: i + 1, chunk: h.chunk,
     quote: h.chunk.page.src === "headline" ? h.chunk.text : bestSentence(h.chunk.text, weights),
   }));
-  last = { q, f, res, evidence, weights };
-  setStatus(`${res.total.toLocaleString()} matching passages in ${ms} ms. Showing the ${evidence.length} strongest, at most two per page and four per newspaper.`);
+  last = { q, f, res, evidence, weights, prevKey: quiet && last && last.q === q ? last.prevKey : null };
+  const pending = manifest.collections.length - archive.loaded.size;
+  setStatus(`${res.total.toLocaleString()} matching passages in ${ms} ms. Showing the ${evidence.length} strongest, at most two per page and four per newspaper.`
+    + (pending ? ` Still loading ${pending} collection${pending > 1 ? "s" : ""}; results will update.` : ""));
+  if (quiet && last.prevKey === resultKey(evidence)) return;  // nothing changed: keep the reader's place
+  last.prevKey = resultKey(evidence);
   render();
 }
+
+const resultKey = (ev) => ev.map((e) => e.chunk.id).join(",");
 
 function highlight(text, terms) {
   return esc(text).replace(/[A-Za-z0-9ſ\u00c0-\u024f\u0900-\u0963\u0966-\u0d7f\u0621-\u064a\u0660-\u0669\u0679-\u06d3]+/g, (w) => (terms.has(stem(fold(w))) ? `<mark>${w}</mark>` : w));

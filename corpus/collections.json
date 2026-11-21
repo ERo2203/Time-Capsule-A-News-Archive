@@ -218,25 +218,33 @@
       {
         "source": "bombay-courier",
         "start": 1811,
-        "end": 1842
+        "end": 1842,
+        "per_decade": 3,
+        "candidates": 15
       },
       {
         "source": "bombay-gazette",
         "start": 1814,
-        "end": 1914
+        "end": 1914,
+        "per_decade": 3,
+        "candidates": 15
       },
       {
         "source": "bombay-guardian",
         "start": 1851,
-        "end": 1889
+        "end": 1889,
+        "per_decade": 3,
+        "candidates": 15
       },
       {
         "source": "bombay-chronicle",
         "start": 1913,
-        "end": 1930
+        "end": 1930,
+        "per_decade": 3,
+        "candidates": 15
       }
     ],
-    "context": "A decade-by-decade sample from four Bombay newspapers held in the Internet Archive's IndiaHistory collection: the Bombay Courier, The Bombay Gazette, The Bombay Guardian and The Bombay Chronicle. Together they cover more than a century of the city, from an East India Company port to the commercial capital of British India. They span the cotton boom of the 1860s, the plague that struck Bombay from 1896, the 1918 influenza and the rise of the nationalist movement, which The Bombay Chronicle (founded 1910) championed. The full runs total almost 30,000 issues. Use the India archive page to search inside all of them.",
+    "context": "A sample of about three issues per decade from four Bombay newspapers held in the Internet Archive's IndiaHistory collection: the Bombay Courier, The Bombay Gazette, The Bombay Guardian and The Bombay Chronicle. Together they cover more than a century of the city, from an East India Company port to the commercial capital of British India. They span the cotton boom of the 1860s, the plague that struck Bombay from 1896, the 1918 influenza and the rise of the nationalist movement, which The Bombay Chronicle (founded 1910) championed. The full runs total almost 30,000 issues. Use the India archive page to search inside all of them.",
     "reading_notes": "These were papers of the colonial and commercial elite, mostly British-owned until the Chronicle. Much of each issue is advertising, shipping lists, government notices and reprinted European news. Indian voices appear chiefly in letters, court reports and, later, the nationalist press. The OCR comes from a modern engine running over old microfilm, so expect noise in small type and tables. Only issues published before 1931 are copied here.",
     "questions": [
       "plague deaths in Bombay",
@@ -256,15 +264,17 @@
         "source": "tamil-periodicals",
         "start": 1850,
         "end": 1930,
-        "per_decade": 2,
-        "max_chars": 250000
+        "per_decade": 5,
+        "max_chars": 250000,
+        "candidates": 20
       },
       {
         "source": "zamin-ryot",
         "start": 1930,
         "end": 1930,
-        "per_decade": 3,
-        "max_chars": 250000
+        "per_decade": 8,
+        "max_chars": 250000,
+        "candidates": 24
       }
     ],
     "context": "Tamil newspapers and periodicals from the 1850s to 1930, such as Narpotakam, Janavinotini, Arunotayam and others, digitized through the British Library's Endangered Archives Programme. Alongside them are 1930 issues of Zamin Ryot, a Telugu weekly from Nellore. Indian-language papers reached far more readers than the English press and carried debates on religion, social reform, education and politics in their readers' own languages.",
@@ -293,7 +303,8 @@
         "kind": "gazette",
         "max_chars": 250000,
         "sort": "random",
-        "candidates": 15
+        "candidates": 25,
+        "per_decade": 3
       },
       {
         "query": "collection:gazetteofindia AND NOT identifier:in.gazette.central* AND NOT identifier:in.gazette.e.* AND NOT identifier:in.gazette.csl* AND NOT identifier:in.gazette.19* AND NOT identifier:in.gazette.20*",
@@ -305,10 +316,11 @@
         "kind": "gazette",
         "max_chars": 250000,
         "sort": "random",
-        "candidates": 15
+        "candidates": 25,
+        "per_decade": 3
       }
     ],
-    "context": "About one gazette issue per decade from the 1920s to the 2020s: the Gazette of India (weekly and extraordinary issues, before and after independence) and state gazettes such as Haryana's, Tamil Nadu's and Karnataka's. Gazettes are where government becomes law: they carry acts and ordinances, appointments, land acquisitions, notices of lost securities, name changes and public notices. The Internet Archive's gazetteofindia collection, digitized by Public.Resource.Org, holds over 877,000 issues. Use the India archive page to search inside all of them.",
+    "context": "About three gazette issues per decade from the 1920s to the 2020s: the Gazette of India (weekly and extraordinary issues, before and after independence) and state gazettes such as Haryana's, Tamil Nadu's and Karnataka's. Gazettes are where government becomes law: they carry acts and ordinances, appointments, land acquisitions, notices of lost securities, name changes and public notices. The Internet Archive's gazetteofindia collection, digitized by Public.Resource.Org, holds over 877,000 issues. Use the India archive page to search inside all of them.",
     "reading_notes": "Gazettes are formal legal records and often bilingual (English with Hindi or a state language). Tables and lists OCR poorly. The issue date is the date of publication, which is not always when a notification took effect. Citations point to the issue; open it at the Internet Archive to find the page.",
     "questions": [
       "land acquisition notification",
