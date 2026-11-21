@@ -29,12 +29,12 @@
   }
  },
  "totals": {
-  "pages": 7891,
-  "passages": 23984,
-  "newspapers": 232,
+  "pages": 7987,
+  "passages": 33643,
+  "newspapers": 243,
   "places": 119,
-  "scanned": 243,
-  "scanned_titles": 145,
+  "scanned": 339,
+  "scanned_titles": 156,
   "headlines": 7648,
   "outlets": 87
  },
@@ -56,7 +56,9 @@
     "When was Booth's death reported, and how?",
     "How was the funeral train described?"
    ],
-   "file": "shard-lincoln-assassination.json",
+   "files": [
+    "shard-lincoln-assassination.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 896,
@@ -118,7 +120,9 @@
     "What relief efforts did other cities organize?",
     "How did estimates of the losses change over the month?"
    ],
-   "file": "shard-great-chicago-fire.json",
+   "files": [
+    "shard-great-chicago-fire.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 1298,
@@ -175,7 +179,9 @@
     "How was the Red Cross relief work reported?",
     "How did the reported death toll change?"
    ],
-   "file": "shard-johnstown-flood.json",
+   "files": [
+    "shard-johnstown-flood.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 943,
@@ -236,7 +242,9 @@
     "Which papers were sceptical?",
     "How did the Wrights' statement correct the press?"
    ],
-   "file": "shard-wright-brothers.json",
+   "files": [
+    "shard-wright-brothers.json"
+   ],
    "stats": {
     "pages": 15,
     "passages": 637,
@@ -298,7 +306,9 @@
     "What did papers report about looting and martial law?",
     "How did other cities send aid?"
    ],
-   "file": "shard-san-francisco-earthquake.json",
+   "files": [
+    "shard-san-francisco-earthquake.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 801,
@@ -358,7 +368,9 @@
     "What did survivors say about the lifeboats?",
     "How was the Carpathia's arrival reported?"
    ],
-   "file": "shard-titanic.json",
+   "files": [
+    "shard-titanic.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 564,
@@ -419,7 +431,9 @@
     "What was said about the German warning notice?",
     "How did President Wilson respond?"
    ],
-   "file": "shard-lusitania.json",
+   "files": [
+    "shard-lusitania.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 605,
@@ -482,7 +496,9 @@
     "Which remedies were advertised?",
     "How did officials describe the danger?"
    ],
-   "file": "shard-influenza-1918.json",
+   "files": [
+    "shard-influenza-1918.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 643,
@@ -542,7 +558,9 @@
     "What terms did papers say Germany accepted?",
     "How were celebrations described?"
    ],
-   "file": "shard-armistice-1918.json",
+   "files": [
+    "shard-armistice-1918.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 496,
@@ -606,7 +624,9 @@
     "What did opponents try after the vote?",
     "When could women first vote in the 1920 election?"
    ],
-   "file": "shard-nineteenth-amendment.json",
+   "files": [
+    "shard-nineteenth-amendment.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 615,
@@ -670,7 +690,9 @@
     "What did Lindbergh say about the flight?",
     "How was his return welcomed?"
    ],
-   "file": "shard-lindbergh-1927.json",
+   "files": [
+    "shard-lindbergh-1927.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 853,
@@ -730,7 +752,9 @@
     "How did officials reassure investors?",
     "How were small investors affected?"
    ],
-   "file": "shard-crash-1929.json",
+   "files": [
+    "shard-crash-1929.json"
+   ],
    "stats": {
     "pages": 16,
     "passages": 1025,
@@ -780,25 +804,33 @@
     {
      "source": "bombay-courier",
      "start": 1811,
-     "end": 1842
+     "end": 1842,
+     "per_decade": 3,
+     "candidates": 15
     },
     {
      "source": "bombay-gazette",
      "start": 1814,
-     "end": 1914
+     "end": 1914,
+     "per_decade": 3,
+     "candidates": 15
     },
     {
      "source": "bombay-guardian",
      "start": 1851,
-     "end": 1889
+     "end": 1889,
+     "per_decade": 3,
+     "candidates": 15
     },
     {
      "source": "bombay-chronicle",
      "start": 1913,
-     "end": 1930
+     "end": 1930,
+     "per_decade": 3,
+     "candidates": 15
     }
    ],
-   "context": "A decade-by-decade sample from four Bombay newspapers held in the Internet Archive's IndiaHistory collection: the Bombay Courier, The Bombay Gazette, The Bombay Guardian and The Bombay Chronicle. Together they cover more than a century of the city, from an East India Company port to the commercial capital of British India. They span the cotton boom of the 1860s, the plague that struck Bombay from 1896, the 1918 influenza and the rise of the nationalist movement, which The Bombay Chronicle (founded 1910) championed. The full runs total almost 30,000 issues. Use the India archive page to search inside all of them.",
+   "context": "A sample of about three issues per decade from four Bombay newspapers held in the Internet Archive's IndiaHistory collection: the Bombay Courier, The Bombay Gazette, The Bombay Guardian and The Bombay Chronicle. Together they cover more than a century of the city, from an East India Company port to the commercial capital of British India. They span the cotton boom of the 1860s, the plague that struck Bombay from 1896, the 1918 influenza and the rise of the nationalist movement, which The Bombay Chronicle (founded 1910) championed. The full runs total almost 30,000 issues. Use the India archive page to search inside all of them.",
    "reading_notes": "These were papers of the colonial and commercial elite, mostly British-owned until the Chronicle. Much of each issue is advertising, shipping lists, government notices and reprinted European news. Indian voices appear chiefly in letters, court reports and, later, the nationalist press. The OCR comes from a modern engine running over old microfilm, so expect noise in small type and tables. Only issues published before 1931 are copied here.",
    "questions": [
     "plague deaths in Bombay",
@@ -806,20 +838,27 @@
     "What did papers say about the Indian National Congress?",
     "shipping arrivals from London"
    ],
-   "file": "shard-bombay-press.json",
+   "files": [
+    "shard-bombay-press-1.json",
+    "shard-bombay-press-2.json",
+    "shard-bombay-press-3.json",
+    "shard-bombay-press-4.json",
+    "shard-bombay-press-5.json",
+    "shard-bombay-press-6.json"
+   ],
    "stats": {
-    "pages": 20,
-    "passages": 4359,
+    "pages": 60,
+    "passages": 12175,
     "newspapers": 4,
     "places": [
      "Bombay"
     ],
     "sources": {
-     "ia": 20
+     "ia": 60
     },
     "dates": [
      "1811-01-05",
-     "1930-02-03"
+     "1930-02-15"
     ]
    },
    "titles": [
@@ -840,15 +879,17 @@
      "source": "tamil-periodicals",
      "start": 1850,
      "end": 1930,
-     "per_decade": 2,
-     "max_chars": 250000
+     "per_decade": 5,
+     "max_chars": 250000,
+     "candidates": 20
     },
     {
      "source": "zamin-ryot",
      "start": 1930,
      "end": 1930,
-     "per_decade": 3,
-     "max_chars": 250000
+     "per_decade": 8,
+     "max_chars": 250000,
+     "candidates": 24
     }
    ],
    "context": "Tamil newspapers and periodicals from the 1850s to 1930, such as Narpotakam, Janavinotini, Arunotayam and others, digitized through the British Library's Endangered Archives Programme. Alongside them are 1930 issues of Zamin Ryot, a Telugu weekly from Nellore. Indian-language papers reached far more readers than the English press and carried debates on religion, social reform, education and politics in their readers' own languages.",
@@ -859,31 +900,39 @@
     "రైతు",
     "ప్రభుత్వం"
    ],
-   "file": "shard-indian-language-press.json",
+   "files": [
+    "shard-indian-language-press-1.json",
+    "shard-indian-language-press-2.json",
+    "shard-indian-language-press-3.json"
+   ],
    "stats": {
-    "pages": 17,
-    "passages": 731,
-    "newspapers": 9,
+    "pages": 35,
+    "passages": 1586,
+    "newspapers": 13,
     "places": [
      "Nellore",
      "Tamil Nadu and Sri Lanka"
     ],
     "sources": {
-     "ia": 17
+     "ia": 35
     },
     "dates": [
-     "1850",
-     "1930-05-18"
+     "",
+     "1930-10-16"
     ]
    },
    "titles": [
     "Arunotayam|Tamil Nadu and Sri Lanka|ia",
+    "Caivam|Tamil Nadu and Sri Lanka|ia",
     "Cattiya tutan|Tamil Nadu and Sri Lanka|ia",
-    "Kumaran|Tamil Nadu and Sri Lanka|ia",
+    "Janopakari|Tamil Nadu and Sri Lanka|ia",
+    "Kalanilayam|Tamil Nadu and Sri Lanka|ia",
     "Nanapotini|Tamil Nadu and Sri Lanka|ia",
     "Narpotakam|Tamil Nadu and Sri Lanka|ia",
+    "Tecopakari|Tamil Nadu and Sri Lanka|ia",
     "Uliyan|Tamil Nadu and Sri Lanka|ia",
     "Vaiciyamitran|Tamil Nadu and Sri Lanka|ia",
+    "Viveka chintamani|Tamil Nadu and Sri Lanka|ia",
     "Zamin Ryot|Nellore|ia",
     "நூல் 1: வைத்தியர் லட்சணம்; நூல் 2: திருமூல நாயனார் அருளி செய்த தத்துவம்; நூல் 3: நிகழானந்தம்; நூல் 4: சிவ தரிசனம்; நூல் 5: உடலறி விளக்கம்; நூல் 6: நாகாரூட சித்திராரூடம்; நூல் 7: இலக்கண சம்கிதை; நூல் 8...|Tamil Nadu and Sri Lanka|ia"
    ]
@@ -905,7 +954,8 @@
      "kind": "gazette",
      "max_chars": 250000,
      "sort": "random",
-     "candidates": 15
+     "candidates": 25,
+     "per_decade": 3
     },
     {
      "query": "collection:gazetteofindia AND NOT identifier:in.gazette.central* AND NOT identifier:in.gazette.e.* AND NOT identifier:in.gazette.csl* AND NOT identifier:in.gazette.19* AND NOT identifier:in.gazette.20*",
@@ -917,10 +967,11 @@
      "kind": "gazette",
      "max_chars": 250000,
      "sort": "random",
-     "candidates": 15
+     "candidates": 25,
+     "per_decade": 3
     }
    ],
-   "context": "About one gazette issue per decade from the 1920s to the 2020s: the Gazette of India (weekly and extraordinary issues, before and after independence) and state gazettes such as Haryana's, Tamil Nadu's and Karnataka's. Gazettes are where government becomes law: they carry acts and ordinances, appointments, land acquisitions, notices of lost securities, name changes and public notices. The Internet Archive's gazetteofindia collection, digitized by Public.Resource.Org, holds over 877,000 issues. Use the India archive page to search inside all of them.",
+   "context": "About three gazette issues per decade from the 1920s to the 2020s: the Gazette of India (weekly and extraordinary issues, before and after independence) and state gazettes such as Haryana's, Tamil Nadu's and Karnataka's. Gazettes are where government becomes law: they carry acts and ordinances, appointments, land acquisitions, notices of lost securities, name changes and public notices. The Internet Archive's gazetteofindia collection, digitized by Public.Resource.Org, holds over 877,000 issues. Use the India archive page to search inside all of them.",
    "reading_notes": "Gazettes are formal legal records and often bilingual (English with Hindi or a state language). Tables and lists OCR poorly. The issue date is the date of publication, which is not always when a notification took effect. Citations point to the issue; open it at the Internet Archive to find the page.",
    "questions": [
     "land acquisition notification",
@@ -928,29 +979,38 @@
     "change of name notice",
     "famine relief"
    ],
-   "file": "shard-gazettes-through-time.json",
+   "files": [
+    "shard-gazettes-through-time.json"
+   ],
    "stats": {
-    "pages": 14,
-    "passages": 540,
-    "newspapers": 5,
+    "pages": 52,
+    "passages": 1528,
+    "newspapers": 12,
     "places": [
      "India",
      "New Delhi"
     ],
     "sources": {
-     "gazette": 14
+     "gazette": 52
     },
     "dates": [
-     "1922-07-01",
-     "2023-08-05"
+     "1904-01-19",
+     "2024-06-19"
     ]
    },
    "titles": [
+    "Bihar Gazette|India|gazette",
     "Gazette of India: Extraordinary|New Delhi|gazette",
+    "Gazette of India: Weekly|New Delhi|gazette",
     "Gazette of India|New Delhi|gazette",
+    "Goa Gazette|India|gazette",
     "Haryana Gazette|India|gazette",
-    "Karnataka ExtraOrdinary Gazette|India|gazette",
-    "Tamil Nadu|India|gazette"
+    "Karnataka Gazette|India|gazette",
+    "Kerala Gazette|India|gazette",
+    "Odisha Gazette|India|gazette",
+    "Tamil Nadu Gazette|India|gazette",
+    "Travancore Gazette|India|gazette",
+    "Travancore-Cochin Gazette|India|gazette"
    ]
   },
   {
@@ -968,7 +1028,9 @@
     "Ayodhya Ram temple bhoomi pujan",
     "How did the business press report the economy and RBI?"
    ],
-   "file": "shard-india-headlines-2020.json",
+   "files": [
+    "shard-india-headlines-2020.json"
+   ],
    "stats": {
     "pages": 7648,
     "passages": 7648,
@@ -1107,7 +1169,9 @@
     "सेवानिवृत्ति के पश्चात् निजी क्षेत्र में नियोजन",
     "State Bank of India appointment of managing director"
    ],
-   "file": "shard-gazette-of-india-2000.json",
+   "files": [
+    "shard-gazette-of-india-2000.json"
+   ],
    "stats": {
     "pages": 1,
     "passages": 1330,

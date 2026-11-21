@@ -34,7 +34,7 @@ async function init() {
     if (!started) { started = true; $("#ask-btn").disabled = false; }
     if (queued) { run(); return; }
     if (n < total) {
-      if (!last) setStatus(`Loaded ${n} of ${total} collections (${a.chunks.length.toLocaleString()} passages). You can search now; results update as the rest arrive.`);
+      if (!last) setStatus(`Loaded ${a.chunks.length.toLocaleString()} passages so far (${Math.round((n / total) * 100)}%). You can search now; results update as the rest arrive.`);
       else run({ quiet: true });  // refresh the open results with the newly loaded collections
     }
   });

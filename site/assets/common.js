@@ -55,18 +55,19 @@ export async function loadManifest() {
  */
 export function loadArchive(manifest, onShard = () => {}) {
   const archive = new Archive();
-  const total = manifest.collections.length;
+  const jobs = manifest.collections.flatMap((c) => (c.files || [c.file]).map((f) => [c.id, f]));
+  const remaining = Object.fromEntries(manifest.collections.map((c) => [c.id, (c.files || [c.file]).length]));
+  const total = jobs.length;
   let loaded = 0;
-  archive.loaded = new Set();
-  const done = Promise.all(manifest.collections.map(async (c) => {
+  archive.loaded = new Set();  // collections whose parts have all arrived
+  const done = Promise.all(jobs.map(async ([id, file]) => {
     try {
-      const json = await (await fetch(`data/${c.file}`)).json();
-      archive.addShard(c.id, json);
-      archive.loaded.add(c.id);
+      archive.addShard(id, await (await fetch(`data/${file}`)).json());
     } catch (e) {
-      console.error(`Could not load ${c.file}`, e);
+      console.error(`Could not load ${file}`, e);
     }
-    onShard(archive, ++loaded, total, c.id);
+    if (--remaining[id] === 0) archive.loaded.add(id);
+    onShard(archive, ++loaded, total, id);
   }));
   return { archive, done };
 }
